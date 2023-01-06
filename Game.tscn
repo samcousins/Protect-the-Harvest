@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://shotgunShort.obj" type="ArrayMesh" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -17,6 +18,7 @@ extents = Vector3( 0.27009, 0.0324253, 0.309672 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 5, 0, 0, 0, 1.1, 0, 0, 0, 5.07, 0, -1, 0 )
+visible = false
 
 [node name="Mesh" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 1 )
@@ -45,3 +47,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0 )
 
 [node name="Camera" type="Camera" parent="Player/Pivot"]
 current = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/Pivot"]
+transform = Transform( -1.99873, 0, -0.071299, 0, 2, 0, 0.071299, 0, -1.99873, 0.100464, -0.06928, -0.128594 )
+mesh = ExtResource( 2 )
