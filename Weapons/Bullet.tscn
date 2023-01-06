@@ -10,7 +10,6 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Death" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Death" to="." method="_on_Death_timeout"]
