@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Weapons/Shotgun/shotgunShort.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Weapons/Shotgun/Shotgun.gd" type="Script" id=2]
+
+[node name="Shotgun" type="MeshInstance"]
+transform = Transform( -7.99492, 0, -0.285196, 0, 8, 0, 0.285196, 0, -7.99492, 0, 0, 0 )
+mesh = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Barrel" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00261197, 0.00764859, 0.0732218 )

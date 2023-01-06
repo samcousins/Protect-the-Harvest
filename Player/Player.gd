@@ -8,8 +8,11 @@ var mouse_sensitivity = 0.002  # radians/pixel
 
 var velocity = Vector3()
 
+onready var equipped_weapon = $Pivot/Shotgun
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 func get_input():
 	var input_dir = Vector3()
@@ -25,15 +28,20 @@ func get_input():
 	input_dir = input_dir.normalized()
 	return input_dir
 
+
 func _unhandled_input(event):
-	if event is InputEventMouseMotion: #and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Pivot.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
+
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
+	
+	if Input.is_action_just_pressed("shoot"):
+		equipped_weapon.shoot()
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
