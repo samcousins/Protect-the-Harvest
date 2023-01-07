@@ -10,10 +10,6 @@ var velocity = Vector3()
 
 onready var equipped_weapon = $Pivot/Shotgun
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-
 func get_input():
 	var input_dir = Vector3()
 	# desired move in camera direction
@@ -37,9 +33,6 @@ func _unhandled_input(event):
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-	
 	if Input.is_action_just_pressed("shoot"):
 		equipped_weapon.shoot()
 

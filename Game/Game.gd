@@ -2,6 +2,8 @@ extends Spatial
 
 var num_objectives := 0
 
+signal player_exited
+
 func _ready():
 	var objectives = get_tree().get_nodes_in_group("objectives")
 	num_objectives = objectives.size()
@@ -16,3 +18,7 @@ func _on_obj_destroyed():
 
 func game_over():
 	print("Game over man")
+
+func _process(delta):
+	if Input.is_action_just_pressed("quit"):
+		emit_signal("player_exited")
