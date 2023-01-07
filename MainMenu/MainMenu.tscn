@@ -32,16 +32,24 @@ text = "PROTECT THE HARVEST"
 align = 1
 valign = 1
 
-[node name="Start" type="Button" parent="Menu/MenuVBox"]
+[node name="Highscore" type="Label" parent="Menu/MenuVBox"]
 margin_top = 18.0
 margin_right = 144.0
-margin_bottom = 38.0
+margin_bottom = 32.0
+text = "HIGHSCORE: 0.0"
+align = 1
+valign = 1
+
+[node name="Start" type="Button" parent="Menu/MenuVBox"]
+margin_top = 36.0
+margin_right = 144.0
+margin_bottom = 56.0
 text = "START"
 
 [node name="Quit" type="Button" parent="Menu/MenuVBox"]
-margin_top = 42.0
+margin_top = 60.0
 margin_right = 144.0
-margin_bottom = 62.0
+margin_bottom = 80.0
 text = "QUIT"
 
 [connection signal="pressed" from="Menu/MenuVBox/Start" to="." method="_on_Start_pressed"]

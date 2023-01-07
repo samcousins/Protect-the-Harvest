@@ -7,7 +7,7 @@ onready var score_text = $GameOver/VBoxContainer/Score
 
 var is_game_over := false
 signal player_exited
-signal game_over
+signal game_over(score)
 
 var score := 0.0
 
@@ -26,7 +26,7 @@ func _on_obj_destroyed():
 		game_over()
 
 func game_over():
-	emit_signal("game_over")
+	emit_signal("game_over", score)
 	score_text.text = "Score: " + str(stepify(score, 0.01))
 	game_over_ui.visible = true
 

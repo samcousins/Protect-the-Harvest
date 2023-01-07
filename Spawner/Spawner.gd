@@ -6,6 +6,7 @@ onready var timer = $SpawnTimer
 
 func _ready():
 	timer.start()
+	offset += rand_range(0.0, 100.0)
 
 
 func _process(delta):

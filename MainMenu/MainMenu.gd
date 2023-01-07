@@ -7,3 +7,6 @@ func _on_Start_pressed():
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+func update_highscore(score):
+	$Menu/MenuVBox/Highscore.text = "HIGHSCORE: " + str(stepify(score, 0.01))
