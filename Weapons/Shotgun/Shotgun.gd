@@ -1,6 +1,6 @@
 extends MeshInstance
 
-var bullet_sc = preload("res://Weapons/Bullet.tscn")
+var bullet_sc = preload("res://Weapons/Bullet/Bullet.tscn")
 
 export var number_of_shells := 10
 var spread := 1.5
