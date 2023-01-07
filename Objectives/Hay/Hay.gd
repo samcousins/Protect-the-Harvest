@@ -1,4 +1,4 @@
-extends StaticBody
+extends MeshInstance
 
 var hp := 2
 

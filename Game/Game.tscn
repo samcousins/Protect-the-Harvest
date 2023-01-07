@@ -1,79 +1,31 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objectives/Hay/Hay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/EnvironmentInherited.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objectives/Hay/Haybale.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Game.gd" type="Script" id=4]
 [ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=5]
 
-[sub_resource type="NavigationMesh" id=3]
-vertices = PoolVector3Array( -0.677715, 1.22817, -0.603993, -0.427715, 1.22817, -0.853993, -1.42772, 1.22817, -1.10399, -4.17772, 1.22817, -0.603993, 1.32228, 1.22817, -1.10399, 0.322285, 1.22817, -0.853993, 0.572285, 1.22817, -0.603993, 4.07228, 1.22817, -0.603993, -4.17772, 1.22817, -0.603993, -1.42772, 1.22817, -1.10399, -1.17772, 1.22817, -3.60399, -4.17772, 1.22817, -5.60399, -1.17772, 1.22817, -3.60399, 1.32228, 1.22817, -3.35399, 4.07228, 1.22817, -5.60399, -4.17772, 1.22817, -5.60399, 1.32228, 1.22817, -3.35399, 1.32228, 1.22817, -1.10399, 4.07228, 1.22817, -0.603993, 4.07228, 1.22817, -5.60399, -0.927715, 2.97817, -3.10399, -0.927715, 2.97817, -1.35399, 0.822285, 2.97817, -1.35399, 0.822285, 2.97817, -3.10399, -0.677715, 1.22817, -2.85399, -0.677715, 1.22817, -1.60399, 0.572285, 1.22817, -1.60399, 0.572285, 1.22817, -2.85399, 4.07228, 1.22817, -0.603993, 0.572285, 1.22817, -0.603993, 0.322285, 1.22817, 0.396007, 4.07228, 1.22817, 5.64601, -0.427715, 1.22817, 0.396007, -0.677715, 1.22817, -0.603993, -4.17772, 1.22817, -0.603993, -4.17772, 1.22817, 5.64601, 0.322285, 1.22817, 0.396007, -0.427715, 1.22817, 0.396007, -4.17772, 1.22817, 5.64601, 4.07228, 1.22817, 5.64601 )
-polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 5, 4, 6 ), PoolIntArray( 6, 4, 7 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 23, 22, 20 ), PoolIntArray( 20, 22, 21 ), PoolIntArray( 27, 26, 24 ), PoolIntArray( 24, 26, 25 ), PoolIntArray( 29, 28, 30 ), PoolIntArray( 30, 28, 31 ), PoolIntArray( 33, 32, 34 ), PoolIntArray( 34, 32, 35 ), PoolIntArray( 36, 39, 37 ), PoolIntArray( 37, 39, 38 ) ]
-agent_radius = 0.1
-
-[sub_resource type="CubeMesh" id=4]
-
-[sub_resource type="BoxShape" id=7]
-extents = Vector3( 1, 1, 0.999868 )
-
-[sub_resource type="CubeMesh" id=5]
-
-[sub_resource type="BoxShape" id=6]
-
-[sub_resource type="CubeMesh" id=8]
-
-[sub_resource type="BoxShape" id=9]
-
 [sub_resource type="Curve3D" id=10]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 14, 1, -2, 0, 0, 0, 0, 0, 0, 14, 1, -2, 0, 0, 0, 0, 0, 0, 4, 0.0607239, 3, 0, 0, 0, 0, 0, 0, -7, 1.06072, 3, 0, 0, 0, 0, 0, 0, -12, 1.06072, -5, 0, 0, 0, 0, 0, 0, -10, 1.06072, 9, 0, 0, 0, 0, 0, 0, 7, 1.06072, 9, 0, 0, 0, 0, 0, 0, 14, 1, -2 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 11, 1.06072, 10, 0, 0, 0, 0, 0, 0, 11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 10 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
 
-[node name="Hay" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 5.41842, 1.06771, 0 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30422, 7.98794 )
 
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
-transform = Transform( 5, 0, 0, 0, 1.1, 0, 0, 0, 5.07, 0, -0.933486, 0 )
-navmesh = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance"]
-transform = Transform( 4.42772, 0, 0, 0, 0.254729, 0, 0, 0, 5.85399, 0, 0.538692, 0 )
-mesh = SubResource( 4 )
-
-[node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/MeshInstance"]
-
-[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/MeshInstance/StaticBody"]
-shape = SubResource( 7 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="NavigationMeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55582, -2.18984 )
-mesh = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/MeshInstance2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/MeshInstance2/StaticBody"]
-shape = SubResource( 6 )
-
-[node name="MeshInstance3" type="MeshInstance" parent="NavigationMeshInstance"]
-transform = Transform( 0.272708, 0, 0, 0, 1.28724, 0, 0, 0, 0.272081, 0, 0.515412, -0.196074 )
-mesh = SubResource( 8 )
-
-[node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance/MeshInstance3"]
-
-[node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/MeshInstance3/StaticBody"]
-shape = SubResource( 9 )
+[node name="Environment" parent="." instance=ExtResource( 2 )]
 
 [node name="SpawnPath" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
 curve = SubResource( 10 )
 
 [node name="Spawner" parent="SpawnPath" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.06072, 10 )
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 visible = false
@@ -103,3 +55,15 @@ margin_bottom = 32.0
 text = "SCORE: 0"
 align = 1
 valign = 1
+
+[node name="Haybale" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.57735, 0, -0.333333, 0, 0.666667, 0, 0.333333, 0, 0.57735, 2.26795, 0, 4 )
+
+[node name="Haybale2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.64395, 0, 0.172546, 0, 0.666667, 0, -0.172546, 0, 0.64395, -4.36055, 0, -2.27646 )
+
+[node name="Haybale3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.471404, 0, 0.471404, 0, 0.666667, 0, -0.471404, 0, 0.471404, 2.14211, 0, -1.70805 )
+
+[node name="Haybale4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.333333, 0, 0.57735, 0, 0.666667, 0, -0.57735, 0, 0.333333, -2.14872, 0, 3.58278 )
