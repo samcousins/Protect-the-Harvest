@@ -2,10 +2,20 @@ extends MeshInstance
 
 var bullet_sc = preload("res://Weapons/Bullet/Bullet.tscn")
 
-export var number_of_shells := 10
-var spread := 1.5
+export var number_of_shells := 20
+var spread := 1.0
+
+var can_shoot := true
+
+onready var cooldown = $Cooldown
 
 func shoot():
+	if not can_shoot:
+		return
+	
+	can_shoot = false
+	cooldown.start()
+	
 	for n in number_of_shells:
 		var bullet = bullet_sc.instance()
 		
@@ -17,3 +27,7 @@ func shoot():
 		bullet.direction.x += rand_range(-spread, spread)
 		
 		get_tree().root.add_child(bullet)
+
+
+func _on_Cooldown_timeout():
+	can_shoot = true

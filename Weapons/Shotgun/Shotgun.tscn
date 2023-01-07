@@ -10,3 +10,8 @@ script = ExtResource( 2 )
 
 [node name="Barrel" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00261197, 0.00764859, 0.0732218 )
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
