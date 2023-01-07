@@ -2,6 +2,8 @@ extends StaticBody
 
 var hp := 2
 
+signal obj_destroyed
+
 func _ready():
 	add_to_group("objectives")
 
@@ -11,4 +13,5 @@ func attacked(dmg):
 		die()
 
 func die():
+	emit_signal("obj_destroyed")
 	queue_free()
