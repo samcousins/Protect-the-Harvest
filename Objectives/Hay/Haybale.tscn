@@ -3,6 +3,10 @@
 [ext_resource path="res://Environment/material_0.material" type="Material" id=1]
 [ext_resource path="res://Objectives/Hay/Hay.gd" type="Script" id=2]
 
+[sub_resource type="CylinderShape" id=83]
+height = 1.99038
+radius = 0.692452
+
 [sub_resource type="ArrayMesh" id=82]
 resource_name = "default_mesh82"
 surfaces/0 = {
@@ -18,17 +22,13 @@ surfaces/0 = {
 "vertex_count": 123
 }
 
-[sub_resource type="CylinderShape" id=83]
-height = 2.97489
-radius = 0.99135
-
-[node name="Haybale" type="MeshInstance"]
-transform = Transform( 0.666666, 0, 0, 0, 0.666667, 0, 0, 0, 0.666666, 0, 0, 0 )
-mesh = SubResource( 82 )
+[node name="Haybale" type="StaticBody"]
 script = ExtResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 5.36309e-10, 0.999999, -4.3708e-08, 0.0122693, -4.37113e-08, -0.999922, -0.999923, 0, -0.0122693, 1.52842, 0.768284, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 5.36309e-10, 0.999999, -4.3708e-08, 0.0122693, -4.37113e-08, -0.999922, -0.999923, 0, -0.0122693, 1.0105, 0.466805, 0.00216955 )
 shape = SubResource( 83 )
+
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.666666, 0, 0, 0, 0.666667, 0, 0, 0, 0.666666, 0, 0, 0 )
+mesh = SubResource( 82 )
