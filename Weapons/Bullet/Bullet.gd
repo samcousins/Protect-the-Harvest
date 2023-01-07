@@ -1,7 +1,7 @@
 extends Area
 
 var direction = Vector3.FORWARD
-var speed := 5.0
+var speed := 30.0
 
 var is_bullet := true
 

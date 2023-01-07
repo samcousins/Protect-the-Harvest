@@ -7,6 +7,7 @@
 radius = 0.05
 
 [node name="Bullet" type="Area"]
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="DeathTimer" type="Timer" parent="."]
