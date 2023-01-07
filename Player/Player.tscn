@@ -38,3 +38,5 @@ current = true
 
 [node name="Shotgun" parent="Pivot" instance=ExtResource( 2 )]
 transform = Transform( -7.99492, 0, -0.285196, 0, 8, 0, 0.285196, 0, -7.99492, 0.320258, -0.230391, -0.438732 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
