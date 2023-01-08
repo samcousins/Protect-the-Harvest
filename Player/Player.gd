@@ -4,7 +4,7 @@ onready var camera = $Pivot/Camera
 
 var gravity = -30
 var max_speed = 8
-var mouse_sensitivity = 0.002  # radians/pixel
+var mouse_sensitivity = 0.004  # radians/pixel
 
 var velocity = Vector3()
 
@@ -32,7 +32,7 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("shoot"):
 		equipped_weapon.shoot()
 
