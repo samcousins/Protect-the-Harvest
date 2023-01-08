@@ -13,21 +13,7 @@ var play_music := true
 onready var equipped_weapon = $Pivot/Shotgun
 
 func _ready():
-	$HUD/BlackScreen.visible = true
-	
 	$Start.play()
-	
-	$HUD/Fade.interpolate_property(
-		$HUD/BlackScreen,
-		"color:a",
-		$HUD/BlackScreen.color.a,
-		0, 
-		2.0,
-		Tween.TRANS_SINE,
-		Tween.EASE_IN_OUT,
-		0.0
-	)
-	$HUD/Fade.start()
 
 func get_input():
 	var input_dir = Vector3()
