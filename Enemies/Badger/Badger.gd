@@ -18,6 +18,8 @@ onready var anim_player = $AnimationPlayer
 
 var death_sound_sc = preload("res://Enemies/Badger/BadgerDeathSound.tscn")
 
+var power_up_sc = preload("res://PowerUp/PowerUp.tscn")
+
 func _ready():
 	find_new_target()
 	anim_player.play("Walking")
@@ -52,10 +54,23 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity * speed * delta)
 
 func die():
+	spawn_death_noise()
+	drop_power_up()
+	queue_free()
+
+func spawn_death_noise():
 	var ds = death_sound_sc.instance()
 	ds.global_transform = global_transform
 	get_tree().root.add_child(ds)
-	queue_free()
+
+func drop_power_up():
+	var chance = 0.9
+	var roll = randf()
+	if roll <= chance:
+		var power_up = power_up_sc.instance()
+		power_up.global_translation.x = global_translation.x
+		power_up.global_translation.z = global_translation.z
+		get_tree().root.add_child(power_up)
 
 func attack():
 	if can_attack and is_instance_valid(current_target):

@@ -7,7 +7,14 @@ var spread := 1.0
 
 var can_shoot := true
 
-onready var cooldown = $Cooldown
+onready var cooldown : Timer = $Cooldown
+var cooldown_time := 0.5
+onready var anim : AnimationPlayer = $AnimationPlayer
+
+onready var power_up_timer : Timer = $PowerUpTimer
+
+func _ready():
+	cooldown.wait_time = cooldown_time
 
 func shoot():
 	if not can_shoot:
@@ -16,20 +23,29 @@ func shoot():
 	can_shoot = false
 	cooldown.start()
 	
-	#for n in number_of_shells:
 	var bullet = bullet_sc.instance()
-	
 	bullet.global_translation = $Barrel.global_translation
-	
 	bullet.direction = -get_global_transform().basis.z
-		#bullet.direction.z += rand_range(-spread, spread)
-		#bullet.direction.y += rand_range(-spread, spread)
-		#bullet.direction.x += rand_range(-spread, spread)
-		
 	get_tree().root.add_child(bullet)
-	$AnimationPlayer.play("Cooldown")
+	
+	anim.play("Cooldown")
 	$Shoot.play()
 
 
 func _on_Cooldown_timeout():
 	can_shoot = true
+
+func power_up(power_time):
+	anim.playback_speed = 2
+	cooldown.wait_time = cooldown_time/2
+	power_up_timer.wait_time  = power_time
+	power_up_timer.start()
+
+func _on_PowerUp_timeout():
+	power_down()
+	
+func power_down():
+	anim.playback_speed = 1
+	cooldown.wait_time = cooldown_time
+
+

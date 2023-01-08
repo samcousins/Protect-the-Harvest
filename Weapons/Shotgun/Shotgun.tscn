@@ -52,4 +52,8 @@ anims/Cooldown = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405758, -0.336517 )
 stream = ExtResource( 1 )
 
+[node name="PowerUp" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
+[connection signal="timeout" from="PowerUp" to="." method="_on_PowerUp_timeout"]
