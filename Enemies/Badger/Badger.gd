@@ -34,9 +34,12 @@ func _physics_process(delta):
 	look_at(Vector3(current_target.global_translation.x, global_translation.y, current_target.global_translation.z), Vector3.UP)
 	
 	if agent.distance_to_target() < agent.target_desired_distance:
-		if can_attack:
-			attack()
+		if anim_player.current_animation != "Attacking":
+			anim_player.play("Attacking")
 		return
+	
+	if anim_player.current_animation != "Walking":
+		anim_player.play("Walking")
 	
 	var dest = agent.get_next_location()
 	
@@ -50,9 +53,10 @@ func die():
 	queue_free()
 
 func attack():
-	current_target.attacked(1)
-	can_attack = false
-	$Cooldown.start()
+	if can_attack:
+		current_target.attacked(1)
+		can_attack = false
+		$Cooldown.start()
 
 func _on_Cooldown_timeout():
 	can_attack = true
