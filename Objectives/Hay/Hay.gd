@@ -3,6 +3,8 @@ extends StaticBody
 var max_hp := 5
 var hp : int
 
+var destruction_sound = preload("res://Objectives/Hay/HayDestroyed.tscn")
+
 signal obj_destroyed
 
 func _ready():
@@ -20,4 +22,9 @@ func attacked(dmg):
 
 func die():
 	emit_signal("obj_destroyed")
+	
+	var dest = destruction_sound.instance()
+	dest.global_translation = global_translation
+	owner.add_child(dest)
+	
 	queue_free()

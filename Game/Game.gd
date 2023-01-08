@@ -16,9 +16,17 @@ func _ready():
 	
 	var objectives = get_tree().get_nodes_in_group("objectives")
 	num_objectives = objectives.size()
+	print("Num objs: " + str(num_objectives))
 	
 	for obj in objectives:
 		obj.connect("obj_destroyed", self, "_on_obj_destroyed")
+
+func _process(delta):
+	if not is_game_over:
+		score += delta
+		
+	if Input.is_action_just_pressed("quit"):
+		emit_signal("player_exited")
 
 func _on_obj_destroyed():
 	num_objectives -= 1
@@ -29,10 +37,8 @@ func game_over():
 	emit_signal("game_over", score)
 	score_text.text = "Score: " + str(stepify(score, 0.01))
 	game_over_ui.visible = true
-
-func _process(delta):
-	if not is_game_over:
-		score += delta
 	
-	if Input.is_action_just_pressed("quit"):
-		emit_signal("player_exited")
+	$gameOver.global_translation = $EnvironmentParent/Player.global_translation
+	$gameOver.play()
+	
+	get_tree().paused = true

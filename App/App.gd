@@ -14,6 +14,10 @@ var can_quit := true
 func _ready():
 	add_main_menu()
 
+func _process(_delta):
+	if Input.is_action_just_pressed("fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+
 func add_main_menu():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
@@ -51,5 +55,6 @@ func return_to_menu():
 	add_main_menu()
 
 func _on_game_over(score):
+	print("Game over - app")
 	if score > highscore:
 		highscore = score

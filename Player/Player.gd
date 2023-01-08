@@ -11,6 +11,8 @@ var velocity = Vector3()
 onready var equipped_weapon = $Pivot/Shotgun
 
 func _ready():
+	$HUD/BlackScreen.visible = true
+	
 	$Start.play()
 	
 	$HUD/Fade.interpolate_property(

@@ -1,16 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/EnvironmentInherited.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objectives/Hay/Haybale.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Game.gd" type="Script" id=4]
 [ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=5]
-
-[sub_resource type="Curve3D" id=10]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 11, 1.06072, 10, 0, 0, 0, 0, 0, 0, 11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 10 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
-}
+[ext_resource path="res://Game/gameOver.wav" type="AudioStream" id=7]
 
 [sub_resource type="ProceduralSky" id=12]
 sky_top_color = Color( 0.996078, 0.788235, 0.788235, 1 )
@@ -31,61 +26,82 @@ dof_blur_far_amount = 0.08
 dof_blur_far_quality = 0
 glow_enabled = true
 
+[sub_resource type="Curve3D" id=10]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 11, 1.06072, 10, 0, 0, 0, 0, 0, 0, 11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 10 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="Game" type="Spatial"]
+pause_mode = 2
 script = ExtResource( 4 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30422, 7.98794 )
-
-[node name="Environment" parent="." instance=ExtResource( 2 )]
-
-[node name="Haybale" parent="Environment" instance=ExtResource( 3 )]
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 2.26795, 0, 4 )
-
-[node name="Haybale2" parent="Environment" instance=ExtResource( 3 )]
-transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -4.36055, 0, -2.27646 )
-
-[node name="Haybale3" parent="Environment" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2.14211, 0, -1.70805 )
-
-[node name="Haybale4" parent="Environment" instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.14872, 0, 3.58278 )
-
-[node name="SpawnPath" type="Path" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
-curve = SubResource( 10 )
-
-[node name="Spawner" parent="SpawnPath" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.06072, 10 )
-
 [node name="GameOver" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -38.0
-margin_top = -20.0
-margin_right = 38.0
-margin_bottom = 20.0
+margin_left = -155.5
+margin_top = -47.5
+margin_right = 155.5
+margin_bottom = 47.5
 mouse_filter = 2
 
 [node name="Text" type="Label" parent="GameOver/VBoxContainer"]
-margin_right = 76.0
-margin_bottom = 14.0
+margin_right = 311.0
+margin_bottom = 29.0
 text = "GAME OVER"
 align = 1
 valign = 1
 
 [node name="Score" type="Label" parent="GameOver/VBoxContainer"]
-margin_top = 18.0
-margin_right = 76.0
-margin_bottom = 32.0
+margin_top = 33.0
+margin_right = 311.0
+margin_bottom = 62.0
 text = "SCORE: 0"
+align = 1
+valign = 1
+
+[node name="Return" type="Label" parent="GameOver/VBoxContainer"]
+margin_top = 66.0
+margin_right = 311.0
+margin_bottom = 95.0
+text = "PRESS ESC TO RETURN TO MENU"
 align = 1
 valign = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 11 )
+
+[node name="gameOver" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 7 )
+unit_db = 20.0
+
+[node name="EnvironmentParent" type="Spatial" parent="."]
+pause_mode = 1
+
+[node name="Player" parent="EnvironmentParent" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30422, 7.98794 )
+
+[node name="Environment" parent="EnvironmentParent" instance=ExtResource( 2 )]
+
+[node name="Haybale" parent="EnvironmentParent/Environment" instance=ExtResource( 3 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 2.26795, 0, 4 )
+
+[node name="Haybale2" parent="EnvironmentParent/Environment" instance=ExtResource( 3 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -4.36055, 0, -2.27646 )
+
+[node name="Haybale3" parent="EnvironmentParent/Environment" instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2.14211, 0, -1.70805 )
+
+[node name="Haybale4" parent="EnvironmentParent/Environment" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.14872, 0, 3.58278 )
+
+[node name="SpawnPath" type="Path" parent="EnvironmentParent"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
+curve = SubResource( 10 )
+
+[node name="Spawner" parent="EnvironmentParent/SpawnPath" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.06072, 10 )

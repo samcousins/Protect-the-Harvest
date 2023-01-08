@@ -79,3 +79,4 @@ script = ExtResource( 5 )
 
 [node name="Attacked" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 6 )
+unit_db = 26.016
