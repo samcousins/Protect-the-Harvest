@@ -14,8 +14,11 @@ var velocity := Vector3()
 
 var can_attack := true
 
+onready var anim_player = $AnimationPlayer
+
 func _ready():
 	find_new_target()
+	anim_player.play("Walking")
 
 func take_damage(dmg):
 	print("Took damage")

@@ -1,6 +1,6 @@
 extends PathFollow
 
-var badger_sc = preload("res://Enemies/Badger/Badger2.tscn")
+var badger_sc = preload("res://Enemies/Badger/Badger.tscn")
 
 onready var timer = $SpawnTimer
 
