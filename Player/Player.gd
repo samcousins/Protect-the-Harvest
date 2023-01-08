@@ -10,6 +10,9 @@ var velocity = Vector3()
 
 onready var equipped_weapon = $Pivot/Shotgun
 
+func _ready():
+	$Start.play()
+
 func get_input():
 	var input_dir = Vector3()
 	# desired move in camera direction

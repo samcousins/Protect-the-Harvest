@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/Shotgun/Shotgun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/icon.png" type="Texture" id=3]
+[ext_resource path="res://Player/start.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape" id=3]
 
@@ -42,3 +43,10 @@ current = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.429651, -0.298691, -0.620401 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Listener" type="Listener" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )
+current = true
+
+[node name="Start" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )

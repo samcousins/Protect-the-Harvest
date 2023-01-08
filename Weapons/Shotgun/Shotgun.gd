@@ -27,6 +27,8 @@ func shoot():
 		#bullet.direction.x += rand_range(-spread, spread)
 		
 	get_tree().root.add_child(bullet)
+	$AnimationPlayer.play("Cooldown")
+	$Shoot.play()
 
 
 func _on_Cooldown_timeout():
