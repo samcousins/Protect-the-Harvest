@@ -32,7 +32,6 @@ func _ready():
 	anim_player.play("Walking")
 
 func take_damage(dmg):
-	print("Took damage")
 	hp -= dmg
 	if hp <= 0:
 		die()

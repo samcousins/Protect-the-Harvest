@@ -19,7 +19,6 @@ func _on_Death_timeout():
 func _on_collision(_rid, thing, _index, _lsi):
 	if "is_bullet" in thing:
 		return
-	print("Hit something!")
 	if thing.has_method("take_damage"):
 		thing.take_damage(damage)
 	queue_free()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/EnvironmentInherited.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objectives/Hay/Haybale.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Game.gd" type="Script" id=4]
 [ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/SpawnPath.gd" type="Script" id=6]
 [ext_resource path="res://Game/gameOver.wav" type="AudioStream" id=7]
 
 [sub_resource type="ProceduralSky" id=12]
@@ -102,6 +103,17 @@ transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.14872, 0
 [node name="SpawnPath" type="Path" parent="EnvironmentParent"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
 curve = SubResource( 10 )
+script = ExtResource( 6 )
+game_path = NodePath("../..")
+
+[node name="SpawnTimer" type="Timer" parent="EnvironmentParent/SpawnPath"]
+wait_time = 20.0
+one_shot = true
+autostart = true
 
 [node name="Spawner" parent="EnvironmentParent/SpawnPath" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.06072, 10 )
+
+[node name="SpawnNoise" type="AudioStreamPlayer3D" parent="EnvironmentParent/SpawnPath"]
+
+[connection signal="timeout" from="EnvironmentParent/SpawnPath/SpawnTimer" to="EnvironmentParent/SpawnPath" method="_on_SpawnTimer_timeout"]
