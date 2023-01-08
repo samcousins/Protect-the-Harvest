@@ -27,6 +27,7 @@ func add_main_menu():
 
 func _on_start_game():
 	main_menu.queue_free()
+	main_menu = null
 	add_game()
 
 func add_game():
@@ -45,6 +46,7 @@ func _on_player_exited():
 
 func return_to_menu():
 	game.queue_free()
+	game = null
 	add_main_menu()
 
 func _on_game_over(score):

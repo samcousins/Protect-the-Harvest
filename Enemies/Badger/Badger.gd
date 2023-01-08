@@ -62,6 +62,7 @@ func _on_Cooldown_timeout():
 	can_attack = true
 
 func find_new_target():
+	current_target = null
 	var targets := get_tree().get_nodes_in_group("objectives")
 	
 	if targets.size() == 0 or not targets:

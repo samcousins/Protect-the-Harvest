@@ -1,15 +1,19 @@
 extends StaticBody
 
-var hp := 5
+var max_hp := 5
+var hp : int
 
 signal obj_destroyed
 
 func _ready():
+	hp = max_hp
 	add_to_group("objectives")
+	$Healthbar.set_bounds(max_hp)
 
 func attacked(dmg):
-	$AnimationPlayer.play("Damaged")
 	hp -= dmg
+	$AnimationPlayer.play("Damaged")
+	$Healthbar.update(hp, max_hp)
 	if hp <= 0:
 		die()
 
