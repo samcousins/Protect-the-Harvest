@@ -61,6 +61,7 @@ current = true
 
 [node name="Start" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -20.0
 
 [node name="PowerUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
