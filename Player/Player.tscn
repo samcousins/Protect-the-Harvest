@@ -45,6 +45,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.429651, -0.298691, -0.620401
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="BlackScreen" type="ColorRect" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Fade" type="Tween" parent="HUD"]
+
 [node name="Listener" type="Listener" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )
 current = true

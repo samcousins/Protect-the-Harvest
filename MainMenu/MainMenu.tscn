@@ -1822,36 +1822,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -72.0
-margin_top = -20.0
-margin_right = 72.0
-margin_bottom = 20.0
+margin_left = -224.5
+margin_top = -126.0
+margin_right = 224.5
+margin_bottom = 126.0
+alignment = 1
 
 [node name="Title" type="Label" parent="Menu/MenuVBox"]
-margin_right = 144.0
-margin_bottom = 14.0
+margin_top = 56.0
+margin_right = 449.0
+margin_bottom = 85.0
 text = "PROTECT THE HARVEST"
 align = 1
 valign = 1
 
 [node name="Highscore" type="Label" parent="Menu/MenuVBox"]
-margin_top = 18.0
-margin_right = 144.0
-margin_bottom = 32.0
+margin_top = 89.0
+margin_right = 449.0
+margin_bottom = 118.0
 text = "HIGHSCORE: 0.0"
 align = 1
 valign = 1
 
 [node name="Start" type="Button" parent="Menu/MenuVBox"]
-margin_top = 36.0
-margin_right = 144.0
-margin_bottom = 56.0
+margin_left = 187.0
+margin_top = 122.0
+margin_right = 262.0
+margin_bottom = 157.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "START"
 
 [node name="Quit" type="Button" parent="Menu/MenuVBox"]
-margin_top = 60.0
-margin_right = 144.0
-margin_bottom = 80.0
+margin_left = 194.0
+margin_top = 161.0
+margin_right = 254.0
+margin_bottom = 196.0
+size_flags_horizontal = 4
 text = "QUIT"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
