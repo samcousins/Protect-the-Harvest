@@ -13,6 +13,7 @@ func _ready():
 func attacked(dmg):
 	hp -= dmg
 	$AnimationPlayer.play("Damaged")
+	$Attacked.play()
 	$Healthbar.update(hp, max_hp)
 	if hp <= 0:
 		die()

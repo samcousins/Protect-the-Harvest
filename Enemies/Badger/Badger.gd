@@ -16,6 +16,8 @@ var can_attack := true
 
 onready var anim_player = $AnimationPlayer
 
+var death_sound_sc = preload("res://Enemies/Badger/BadgerDeathSound.tscn")
+
 func _ready():
 	find_new_target()
 	anim_player.play("Walking")
@@ -50,6 +52,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity * speed * delta)
 
 func die():
+	var ds = death_sound_sc.instance()
+	ds.global_transform = global_transform
+	get_tree().root.add_child(ds)
 	queue_free()
 
 func attack():
