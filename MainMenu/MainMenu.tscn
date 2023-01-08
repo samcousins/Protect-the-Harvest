@@ -1960,6 +1960,7 @@ unit_db = 26.016
 [node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="MenuVBox" type="VBoxContainer" parent="Menu"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1971,50 +1972,112 @@ margin_bottom = 126.0
 alignment = 1
 
 [node name="Title" type="Label" parent="Menu/MenuVBox"]
-margin_top = 56.0
+margin_top = 36.0
 margin_right = 449.0
-margin_bottom = 85.0
+margin_bottom = 65.0
 text = "PROTECT THE HARVEST"
 align = 1
 valign = 1
 
 [node name="Highscore" type="Label" parent="Menu/MenuVBox"]
-margin_top = 89.0
+margin_top = 69.0
 margin_right = 449.0
-margin_bottom = 118.0
+margin_bottom = 98.0
 text = "HIGHSCORE: 0.0"
 align = 1
 valign = 1
 
 [node name="Start" type="Button" parent="Menu/MenuVBox"]
 margin_left = 187.0
-margin_top = 122.0
+margin_top = 102.0
 margin_right = 262.0
-margin_bottom = 157.0
+margin_bottom = 137.0
 size_flags_horizontal = 4
-size_flags_vertical = 0
 text = "START"
+
+[node name="Settings" type="Button" parent="Menu/MenuVBox"]
+margin_left = 171.0
+margin_top = 141.0
+margin_right = 278.0
+margin_bottom = 176.0
+size_flags_horizontal = 4
+text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="Menu/MenuVBox"]
 margin_left = 194.0
-margin_top = 161.0
+margin_top = 180.0
 margin_right = 254.0
-margin_bottom = 196.0
+margin_bottom = 215.0
 size_flags_horizontal = 4
 text = "QUIT"
+
+[node name="SettingsVBox" type="VBoxContainer" parent="Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.0
+margin_top = -97.5
+margin_right = 102.0
+margin_bottom = 97.5
+
+[node name="Title" type="Label" parent="Menu/SettingsVBox"]
+margin_right = 204.0
+margin_bottom = 29.0
+text = "SETTINGS"
+align = 1
+valign = 1
+
+[node name="Fullscreen" type="CheckButton" parent="Menu/SettingsVBox"]
+margin_top = 33.0
+margin_right = 204.0
+margin_bottom = 73.0
+pressed = true
+text = "FULLSCREEN"
+align = 1
+
+[node name="Music" type="CheckButton" parent="Menu/SettingsVBox"]
+margin_top = 77.0
+margin_right = 204.0
+margin_bottom = 117.0
+pressed = true
+text = "MUSIC"
+align = 1
+icon_align = 1
+
+[node name="Back" type="Button" parent="Menu/SettingsVBox"]
+margin_left = 69.0
+margin_top = 121.0
+margin_right = 134.0
+margin_bottom = 156.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "BACK"
+
+[node name="BlackScreen" type="ColorRect" parent="Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 94 )
 
-[node name="Voiceline" type="AudioStreamPlayer3D" parent="."]
+[node name="Voiceline" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-unit_db = 23.704
 autoplay = true
 
-[node name="OnLoad" type="AudioStreamPlayer3D" parent="."]
+[node name="OnLoad" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-unit_db = 5.202
+volume_db = -15.0
 autoplay = true
+
+[node name="FadeUp" type="Tween" parent="."]
 
 [connection signal="pressed" from="Menu/MenuVBox/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Menu/MenuVBox/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Menu/MenuVBox/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="toggled" from="Menu/SettingsVBox/Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="toggled" from="Menu/SettingsVBox/Music" to="." method="_on_Music_toggled"]
+[connection signal="pressed" from="Menu/SettingsVBox/Back" to="." method="_on_SettingsBack_pressed"]

@@ -8,6 +8,8 @@ var mouse_sensitivity = 0.004  # radians/pixel
 
 var velocity = Vector3()
 
+var play_music := true
+
 onready var equipped_weapon = $Pivot/Shotgun
 
 func _ready():
@@ -20,7 +22,7 @@ func _ready():
 		"color:a",
 		$HUD/BlackScreen.color.a,
 		0, 
-		1.0,
+		2.0,
 		Tween.TRANS_SINE,
 		Tween.EASE_IN_OUT,
 		0.0

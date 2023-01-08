@@ -17,7 +17,7 @@ func _on_SpawnTimer_timeout():
 	var spawner = enemy_spawner.instance()
 	spawner.game = game
 	spawner.reverse_dir = reverse_dir
-	reverse_dir != reverse_dir
+	reverse_dir = !reverse_dir
 	add_child(spawner)
 	
 	$SpawnTimer.wait_time += 10
