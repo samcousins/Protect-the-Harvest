@@ -27,7 +27,7 @@ surfaces/0 = {
 
 [sub_resource type="Animation" id=84]
 resource_name = "Damaged"
-length = 0.5
+length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mesh:translation")
 tracks/0/interp = 1
@@ -35,10 +35,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 0.25, 1, 1, 1, 1, 1.03526 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 0.25, 1, 1, 1, 1, 1.03526, 1.03526, 1.03526, 1.03526 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.1 ), Vector3( 0, 0, -0.1 ), Vector3( 0, 0, 0.1 ), Vector3( 0, 0, -0.1 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.25 ), Vector3( 0, 0, -0.25 ), Vector3( 0, 0, 0.2 ), Vector3( 0, 0, -0.2 ), Vector3( 0, 0, 0.1 ), Vector3( 0, 0, -0.1 ), Vector3( 0, 0, 0.05 ), Vector3( 0, 0, -0.05 ) ]
 }
 
 [node name="Haybale" type="StaticBody"]
@@ -49,7 +49,7 @@ transform = Transform( 5.36309e-10, 0.999999, -4.3708e-08, 0.0122693, -4.37113e-
 shape = SubResource( 83 )
 
 [node name="Mesh" type="MeshInstance" parent="."]
-transform = Transform( 0.666666, 0, 0, 0, 0.666667, 0, 0, 0, 0.666666, 0, 0, 0 )
+transform = Transform( 0.666666, 0, 0, 0, 0.666667, 0, 0, 0, 0.666666, 0, 0, -0.05 )
 mesh = SubResource( 82 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

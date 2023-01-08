@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Environment/material_0.material" type="Material" id=1]
 
@@ -1225,334 +1225,458 @@ surfaces/0 = {
 "vertex_count": 10
 }
 
+[sub_resource type="BoxShape" id=88]
+extents = Vector3( 10, 1, 1 )
+
 [node name="Environment" type="NavigationMeshInstance"]
 navmesh = SubResource( 86 )
 
-[node name="Floor" type="MeshInstance" parent="."]
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="Floor" type="MeshInstance" parent="Objects"]
 mesh = SubResource( 1 )
+skeleton = NodePath("../..")
 
-[node name="StaticBody" type="StaticBody" parent="Floor"]
+[node name="StaticBody" type="StaticBody" parent="Objects/Floor"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Floor/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 87 )
 
-[node name="Wheat" type="MeshInstance" parent="."]
+[node name="Wheat" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 1 )
 mesh = SubResource( 2 )
+skeleton = NodePath("../..")
 
-[node name="Wheat2" type="MeshInstance" parent="."]
+[node name="Wheat2" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2 )
 mesh = SubResource( 3 )
+skeleton = NodePath("../..")
 
-[node name="Wheat3" type="MeshInstance" parent="."]
+[node name="Wheat3" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4 )
 mesh = SubResource( 4 )
+skeleton = NodePath("../..")
 
-[node name="Wheat4" type="MeshInstance" parent="."]
+[node name="Wheat4" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 3 )
 mesh = SubResource( 5 )
+skeleton = NodePath("../..")
 
-[node name="Wheat5" type="MeshInstance" parent="."]
+[node name="Wheat5" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5 )
 mesh = SubResource( 6 )
+skeleton = NodePath("../..")
 
-[node name="Wheat6" type="MeshInstance" parent="."]
+[node name="Wheat6" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 6 )
 mesh = SubResource( 7 )
+skeleton = NodePath("../..")
 
-[node name="Wheat7" type="MeshInstance" parent="."]
+[node name="Wheat7" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 7 )
 mesh = SubResource( 8 )
+skeleton = NodePath("../..")
 
-[node name="Wheat8" type="MeshInstance" parent="."]
+[node name="Wheat8" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 8 )
 mesh = SubResource( 9 )
+skeleton = NodePath("../..")
 
-[node name="Wheat9" type="MeshInstance" parent="."]
+[node name="Wheat9" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3 )
 mesh = SubResource( 10 )
+skeleton = NodePath("../..")
 
-[node name="Wheat10" type="MeshInstance" parent="."]
+[node name="Wheat10" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2 )
 mesh = SubResource( 11 )
+skeleton = NodePath("../..")
 
-[node name="Wheat11" type="MeshInstance" parent="."]
+[node name="Wheat11" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1 )
 mesh = SubResource( 12 )
+skeleton = NodePath("../..")
 
-[node name="Wheat12" type="MeshInstance" parent="."]
+[node name="Wheat12" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0 )
 mesh = SubResource( 13 )
+skeleton = NodePath("../..")
 
-[node name="Wheat13" type="MeshInstance" parent="."]
+[node name="Wheat13" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -8 )
 mesh = SubResource( 14 )
+skeleton = NodePath("../..")
 
-[node name="Wheat14" type="MeshInstance" parent="."]
+[node name="Wheat14" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7 )
 mesh = SubResource( 15 )
+skeleton = NodePath("../..")
 
-[node name="Wheat15" type="MeshInstance" parent="."]
+[node name="Wheat15" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6 )
 mesh = SubResource( 16 )
+skeleton = NodePath("../..")
 
-[node name="Wheat16" type="MeshInstance" parent="."]
+[node name="Wheat16" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5 )
 mesh = SubResource( 17 )
+skeleton = NodePath("../..")
 
-[node name="Wheat17" type="MeshInstance" parent="."]
+[node name="Wheat17" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4 )
 mesh = SubResource( 18 )
+skeleton = NodePath("../..")
 
-[node name="Wheat18" type="MeshInstance" parent="."]
+[node name="Wheat18" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10 )
 mesh = SubResource( 19 )
+skeleton = NodePath("../..")
 
-[node name="Wheat19" type="MeshInstance" parent="."]
+[node name="Wheat19" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -9 )
 mesh = SubResource( 20 )
+skeleton = NodePath("../..")
 
-[node name="Wheat20" type="MeshInstance" parent="."]
+[node name="Wheat20" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 9 )
 mesh = SubResource( 21 )
+skeleton = NodePath("../..")
 
-[node name="Wheat21" type="MeshInstance" parent="."]
+[node name="Wheat21" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 10 )
 mesh = SubResource( 22 )
+skeleton = NodePath("../..")
 
-[node name="Wheat22" type="MeshInstance" parent="."]
+[node name="Wheat22" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 9 )
 mesh = SubResource( 23 )
+skeleton = NodePath("../..")
 
-[node name="Wheat23" type="MeshInstance" parent="."]
+[node name="Wheat23" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 8 )
 mesh = SubResource( 24 )
+skeleton = NodePath("../..")
 
-[node name="Wheat24" type="MeshInstance" parent="."]
+[node name="Wheat24" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 7 )
 mesh = SubResource( 25 )
+skeleton = NodePath("../..")
 
-[node name="Wheat25" type="MeshInstance" parent="."]
+[node name="Wheat25" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 6 )
 mesh = SubResource( 26 )
+skeleton = NodePath("../..")
 
-[node name="Wheat26" type="MeshInstance" parent="."]
+[node name="Wheat26" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 5 )
 mesh = SubResource( 27 )
+skeleton = NodePath("../..")
 
-[node name="Wheat27" type="MeshInstance" parent="."]
+[node name="Wheat27" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 4 )
 mesh = SubResource( 28 )
+skeleton = NodePath("../..")
 
-[node name="Wheat28" type="MeshInstance" parent="."]
+[node name="Wheat28" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 3 )
 mesh = SubResource( 29 )
+skeleton = NodePath("../..")
 
-[node name="Wheat29" type="MeshInstance" parent="."]
+[node name="Wheat29" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 2 )
 mesh = SubResource( 30 )
+skeleton = NodePath("../..")
 
-[node name="Wheat30" type="MeshInstance" parent="."]
+[node name="Wheat30" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 1 )
 mesh = SubResource( 31 )
+skeleton = NodePath("../..")
 
-[node name="Wheat31" type="MeshInstance" parent="."]
+[node name="Wheat31" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, 8.88178e-16 )
 mesh = SubResource( 32 )
+skeleton = NodePath("../..")
 
-[node name="Wheat32" type="MeshInstance" parent="."]
+[node name="Wheat32" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -1 )
 mesh = SubResource( 33 )
+skeleton = NodePath("../..")
 
-[node name="Wheat33" type="MeshInstance" parent="."]
+[node name="Wheat33" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -3 )
 mesh = SubResource( 34 )
+skeleton = NodePath("../..")
 
-[node name="Wheat34" type="MeshInstance" parent="."]
+[node name="Wheat34" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -2 )
 mesh = SubResource( 35 )
+skeleton = NodePath("../..")
 
-[node name="Wheat35" type="MeshInstance" parent="."]
+[node name="Wheat35" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -4 )
 mesh = SubResource( 36 )
+skeleton = NodePath("../..")
 
-[node name="Wheat36" type="MeshInstance" parent="."]
+[node name="Wheat36" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -5 )
 mesh = SubResource( 37 )
+skeleton = NodePath("../..")
 
-[node name="Wheat37" type="MeshInstance" parent="."]
+[node name="Wheat37" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -8 )
 mesh = SubResource( 38 )
+skeleton = NodePath("../..")
 
-[node name="Wheat38" type="MeshInstance" parent="."]
+[node name="Wheat38" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -9 )
 mesh = SubResource( 39 )
+skeleton = NodePath("../..")
 
-[node name="Wheat39" type="MeshInstance" parent="."]
+[node name="Wheat39" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -7 )
 mesh = SubResource( 40 )
+skeleton = NodePath("../..")
 
-[node name="Wheat40" type="MeshInstance" parent="."]
+[node name="Wheat40" type="MeshInstance" parent="Objects"]
 transform = Transform( -1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, 1.22465e-16, -1.22465e-16, 1.22465e-16, -1, 10, 6.12323e-17, -6 )
 mesh = SubResource( 41 )
+skeleton = NodePath("../..")
 
-[node name="Wheat41" type="MeshInstance" parent="."]
+[node name="Wheat41" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -9, 6.12323e-17, -10 )
 mesh = SubResource( 42 )
+skeleton = NodePath("../..")
 
-[node name="Wheat42" type="MeshInstance" parent="."]
+[node name="Wheat42" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -8, 6.12323e-17, -10 )
 mesh = SubResource( 43 )
+skeleton = NodePath("../..")
 
-[node name="Wheat43" type="MeshInstance" parent="."]
+[node name="Wheat43" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -7, 6.12323e-17, -10 )
 mesh = SubResource( 44 )
+skeleton = NodePath("../..")
 
-[node name="Wheat44" type="MeshInstance" parent="."]
+[node name="Wheat44" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -6, 6.12323e-17, -10 )
 mesh = SubResource( 45 )
+skeleton = NodePath("../..")
 
-[node name="Wheat45" type="MeshInstance" parent="."]
+[node name="Wheat45" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -5, 6.12323e-17, -10 )
 mesh = SubResource( 46 )
+skeleton = NodePath("../..")
 
-[node name="Wheat46" type="MeshInstance" parent="."]
+[node name="Wheat46" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -4, 6.12323e-17, -10 )
 mesh = SubResource( 47 )
+skeleton = NodePath("../..")
 
-[node name="Wheat47" type="MeshInstance" parent="."]
+[node name="Wheat47" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -3, 6.12323e-17, -10 )
 mesh = SubResource( 48 )
+skeleton = NodePath("../..")
 
-[node name="Wheat48" type="MeshInstance" parent="."]
+[node name="Wheat48" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -2, 6.12323e-17, -10 )
 mesh = SubResource( 49 )
+skeleton = NodePath("../..")
 
-[node name="Wheat49" type="MeshInstance" parent="."]
+[node name="Wheat49" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, -1, 6.12323e-17, -10 )
 mesh = SubResource( 50 )
+skeleton = NodePath("../..")
 
-[node name="Wheat50" type="MeshInstance" parent="."]
+[node name="Wheat50" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 4.00825e-15, 6.12323e-17, -10 )
 mesh = SubResource( 51 )
+skeleton = NodePath("../..")
 
-[node name="Wheat51" type="MeshInstance" parent="."]
+[node name="Wheat51" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 1, 6.12323e-17, -10 )
 mesh = SubResource( 52 )
+skeleton = NodePath("../..")
 
-[node name="Wheat52" type="MeshInstance" parent="."]
+[node name="Wheat52" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 2, 6.12323e-17, -10 )
 mesh = SubResource( 53 )
+skeleton = NodePath("../..")
 
-[node name="Wheat53" type="MeshInstance" parent="."]
+[node name="Wheat53" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 3, 6.12323e-17, -10 )
 mesh = SubResource( 54 )
+skeleton = NodePath("../..")
 
-[node name="Wheat54" type="MeshInstance" parent="."]
+[node name="Wheat54" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 4, 6.12323e-17, -10 )
 mesh = SubResource( 55 )
+skeleton = NodePath("../..")
 
-[node name="Wheat55" type="MeshInstance" parent="."]
+[node name="Wheat55" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 5, 6.12323e-17, -10 )
 mesh = SubResource( 56 )
+skeleton = NodePath("../..")
 
-[node name="Wheat56" type="MeshInstance" parent="."]
+[node name="Wheat56" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 6, 6.12323e-17, -10 )
 mesh = SubResource( 57 )
+skeleton = NodePath("../..")
 
-[node name="Wheat57" type="MeshInstance" parent="."]
+[node name="Wheat57" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 7, 6.12323e-17, -10 )
 mesh = SubResource( 58 )
+skeleton = NodePath("../..")
 
-[node name="Wheat58" type="MeshInstance" parent="."]
+[node name="Wheat58" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 8, 6.12323e-17, -10 )
 mesh = SubResource( 59 )
+skeleton = NodePath("../..")
 
-[node name="Wheat59" type="MeshInstance" parent="."]
+[node name="Wheat59" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 9, 6.12323e-17, -10 )
 mesh = SubResource( 60 )
+skeleton = NodePath("../..")
 
-[node name="Wheat60" type="MeshInstance" parent="."]
+[node name="Wheat60" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, -1, 1.22465e-16, 1, 2.46519e-32, 1, -1.22465e-16, 2.22045e-16, 10, 6.12323e-17, -10 )
 mesh = SubResource( 61 )
+skeleton = NodePath("../..")
 
-[node name="Wheat61" type="MeshInstance" parent="."]
+[node name="Wheat61" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -10, 0, 10 )
 mesh = SubResource( 62 )
+skeleton = NodePath("../..")
 
-[node name="Wheat62" type="MeshInstance" parent="."]
+[node name="Wheat62" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -9, 0, 10 )
 mesh = SubResource( 63 )
+skeleton = NodePath("../..")
 
-[node name="Wheat63" type="MeshInstance" parent="."]
+[node name="Wheat63" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -8, 0, 10 )
 mesh = SubResource( 64 )
+skeleton = NodePath("../..")
 
-[node name="Wheat64" type="MeshInstance" parent="."]
+[node name="Wheat64" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -7, 0, 10 )
 mesh = SubResource( 65 )
+skeleton = NodePath("../..")
 
-[node name="Wheat65" type="MeshInstance" parent="."]
+[node name="Wheat65" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -5, 0, 10 )
 mesh = SubResource( 66 )
+skeleton = NodePath("../..")
 
-[node name="Wheat66" type="MeshInstance" parent="."]
+[node name="Wheat66" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -6, 0, 10 )
 mesh = SubResource( 67 )
+skeleton = NodePath("../..")
 
-[node name="Wheat67" type="MeshInstance" parent="."]
+[node name="Wheat67" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -4, 0, 10 )
 mesh = SubResource( 68 )
+skeleton = NodePath("../..")
 
-[node name="Wheat68" type="MeshInstance" parent="."]
+[node name="Wheat68" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -3, 0, 10 )
 mesh = SubResource( 69 )
+skeleton = NodePath("../..")
 
-[node name="Wheat69" type="MeshInstance" parent="."]
+[node name="Wheat69" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -2, 0, 10 )
 mesh = SubResource( 70 )
+skeleton = NodePath("../..")
 
-[node name="Wheat70" type="MeshInstance" parent="."]
+[node name="Wheat70" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, -1, 0, 10 )
 mesh = SubResource( 71 )
+skeleton = NodePath("../..")
 
-[node name="Wheat71" type="MeshInstance" parent="."]
+[node name="Wheat71" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 0, 0, 10 )
 mesh = SubResource( 72 )
+skeleton = NodePath("../..")
 
-[node name="Wheat72" type="MeshInstance" parent="."]
+[node name="Wheat72" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 1, 0, 10 )
 mesh = SubResource( 73 )
+skeleton = NodePath("../..")
 
-[node name="Wheat73" type="MeshInstance" parent="."]
+[node name="Wheat73" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 2, 0, 10 )
 mesh = SubResource( 74 )
+skeleton = NodePath("../..")
 
-[node name="Wheat74" type="MeshInstance" parent="."]
+[node name="Wheat74" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 3, 0, 10 )
 mesh = SubResource( 75 )
+skeleton = NodePath("../..")
 
-[node name="Wheat75" type="MeshInstance" parent="."]
+[node name="Wheat75" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 4, 0, 10 )
 mesh = SubResource( 76 )
+skeleton = NodePath("../..")
 
-[node name="Wheat76" type="MeshInstance" parent="."]
+[node name="Wheat76" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 5, 0, 10 )
 mesh = SubResource( 77 )
+skeleton = NodePath("../..")
 
-[node name="Wheat77" type="MeshInstance" parent="."]
+[node name="Wheat77" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 6, 0, 10 )
 mesh = SubResource( 78 )
+skeleton = NodePath("../..")
 
-[node name="Wheat78" type="MeshInstance" parent="."]
+[node name="Wheat78" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 7, 0, 10 )
 mesh = SubResource( 79 )
+skeleton = NodePath("../..")
 
-[node name="Wheat79" type="MeshInstance" parent="."]
+[node name="Wheat79" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 8, 0, 10 )
 mesh = SubResource( 80 )
+skeleton = NodePath("../..")
 
-[node name="Wheat80" type="MeshInstance" parent="."]
+[node name="Wheat80" type="MeshInstance" parent="Objects"]
 transform = Transform( 2.22045e-16, 0, 1, 0, 1, 0, -1, 0, 2.22045e-16, 9, 0, 10 )
 mesh = SubResource( 81 )
+skeleton = NodePath("../..")
+
+[node name="Bounds" type="Spatial" parent="."]
+
+[node name="PlayerBlocker" type="StaticBody" parent="Bounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Bounds/PlayerBlocker"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1 )
+shape = SubResource( 88 )
+
+[node name="PlayerBlocker2" type="StaticBody" parent="Bounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Bounds/PlayerBlocker2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1 )
+shape = SubResource( 88 )
+
+[node name="PlayerBlocker3" type="StaticBody" parent="Bounds"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 1 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Bounds/PlayerBlocker3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1 )
+shape = SubResource( 88 )
+
+[node name="PlayerBlocker4" type="StaticBody" parent="Bounds"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 1 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Bounds/PlayerBlocker4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1 )
+shape = SubResource( 88 )
