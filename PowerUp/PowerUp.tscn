@@ -4,6 +4,7 @@
 [ext_resource path="res://PowerUp/PowerUp.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.460943, 0.449089, 0.510881 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Hover"
@@ -18,15 +19,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.25, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
 [node name="PowerUp" type="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="Img" type="Sprite3D" parent="."]
-transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.016955, 0 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.15569, 0 )
 billboard = 1
 texture = ExtResource( 1 )
 
@@ -36,4 +36,9 @@ shape = SubResource( 1 )
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/Hover = SubResource( 2 )
 
+[node name="Death" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="Death" to="." method="_on_Death_timeout"]

@@ -16,7 +16,7 @@ config/icon="res://cornfieldIcon.png"
 
 [debug]
 
-settings/fps/force_fps=30
+settings/fps/force_fps=40
 
 [display]
 

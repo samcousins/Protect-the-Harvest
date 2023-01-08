@@ -49,3 +49,4 @@ func _physics_process(delta):
 
 func power_up(power_time):
 	equipped_weapon.power_up(power_time)
+	$PowerUp.play()

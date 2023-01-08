@@ -16,9 +16,16 @@ var can_attack := true
 
 onready var anim_player = $AnimationPlayer
 
+onready var audio = $Audio
+onready var attacking_sound = preload("res://Enemies/Badger/attack.wav")
+onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
+
 var death_sound_sc = preload("res://Enemies/Badger/BadgerDeathSound.tscn")
 
 var power_up_sc = preload("res://PowerUp/PowerUp.tscn")
+var power_up_chance := 0.2
+
+var blood_sc = preload("res://Enemies/Badger/Blood.tscn")
 
 func _ready():
 	find_new_target()
@@ -40,10 +47,16 @@ func _physics_process(delta):
 	if agent.distance_to_target() < agent.target_desired_distance:
 		if anim_player.current_animation != "Attacking":
 			anim_player.play("Attacking")
+		if audio.stream != attacking_sound:
+			audio.stream = attacking_sound
+			audio.play()
 		return
-	
-	if anim_player.current_animation != "Walking":
-		anim_player.play("Walking")
+	else:
+		if anim_player.current_animation != "Walking":
+			anim_player.play("Walking")
+		if audio.stream != walking_sound:
+			audio.stream = walking_sound
+			audio.play()
 	
 	var dest = agent.get_next_location()
 	
@@ -55,7 +68,14 @@ func _physics_process(delta):
 
 func die():
 	spawn_death_noise()
+	spawn_blood()
 	drop_power_up()
+	queue_free()
+
+func spawn_blood():
+	var blood = blood_sc.instance()
+	blood.global_transform = global_transform
+	get_tree().root.add_child(blood)
 	queue_free()
 
 func spawn_death_noise():
@@ -64,13 +84,11 @@ func spawn_death_noise():
 	get_tree().root.add_child(ds)
 
 func drop_power_up():
-	var chance = 0.9
 	var roll = randf()
-	if roll <= chance:
+	if roll <= power_up_chance:
 		var power_up = power_up_sc.instance()
-		power_up.global_translation.x = global_translation.x
-		power_up.global_translation.z = global_translation.z
-		get_tree().root.add_child(power_up)
+		power_up.global_transform = global_transform
+		get_parent().add_child(power_up)
 
 func attack():
 	if can_attack and is_instance_valid(current_target):

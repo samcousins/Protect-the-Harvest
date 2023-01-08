@@ -13,8 +13,10 @@ var cooldown_time := 0.5
 onready var anim : AnimationPlayer = $AnimationPlayer
 
 onready var power_up_timer : Timer = $PowerUp
+onready var power_up_anim = $ShotgunCroc/PoweredUpAnim
 
 func _ready():
+	power_up_anim.visible = false
 	cooldown.wait_time = cooldown_time
 
 func shoot():
@@ -37,6 +39,7 @@ func _on_Cooldown_timeout():
 	can_shoot = true
 
 func power_up(power_time):
+	power_up_anim.visible = true
 	if not powered_up:
 		anim.playback_speed = 2
 		cooldown.wait_time = cooldown_time/2
@@ -49,6 +52,7 @@ func _on_PowerUp_timeout():
 	power_down()
 	
 func power_down():
+	power_up_anim.visible = false
 	anim.playback_speed = 1
 	cooldown.wait_time = cooldown_time
 	powered_up = false

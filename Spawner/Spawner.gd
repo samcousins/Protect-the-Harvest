@@ -17,7 +17,7 @@ func _on_SpawnTimer_timeout():
 	var badger = badger_sc.instance()
 	badger.global_translation = global_translation
 	badger.scale *= 0.5
-	get_tree().root.add_child(badger)
+	owner.add_child(badger)
 	
 	timer.wait_time = rand_range(1.0, 3.0)
 	timer.start()

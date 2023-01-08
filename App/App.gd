@@ -35,6 +35,7 @@ func add_game():
 	
 	if is_instance_valid(game):
 		game.queue_free()
+		game = null
 	
 	game = game_sc.instance()
 	game.connect("player_exited", self, "_on_player_exited")
