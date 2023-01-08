@@ -1972,42 +1972,51 @@ margin_bottom = 126.0
 alignment = 1
 
 [node name="Title" type="Label" parent="Menu/MenuVBox"]
-margin_top = 36.0
+margin_top = 17.0
 margin_right = 449.0
-margin_bottom = 65.0
+margin_bottom = 46.0
 text = "PROTECT THE HARVEST"
 align = 1
 valign = 1
 
 [node name="Highscore" type="Label" parent="Menu/MenuVBox"]
-margin_top = 69.0
+margin_top = 50.0
 margin_right = 449.0
-margin_bottom = 98.0
+margin_bottom = 79.0
 text = "HIGHSCORE: 0.0"
 align = 1
 valign = 1
 
 [node name="Start" type="Button" parent="Menu/MenuVBox"]
 margin_left = 187.0
-margin_top = 102.0
+margin_top = 83.0
 margin_right = 262.0
-margin_bottom = 137.0
+margin_bottom = 118.0
 size_flags_horizontal = 4
 text = "START"
 
 [node name="Settings" type="Button" parent="Menu/MenuVBox"]
 margin_left = 171.0
-margin_top = 141.0
+margin_top = 122.0
 margin_right = 278.0
-margin_bottom = 176.0
+margin_bottom = 157.0
 size_flags_horizontal = 4
 text = "SETTINGS"
 
+[node name="About" type="Button" parent="Menu/MenuVBox"]
+margin_left = 185.0
+margin_top = 161.0
+margin_right = 264.0
+margin_bottom = 196.0
+size_flags_horizontal = 4
+text = "ABOUT"
+icon_align = 1
+
 [node name="Quit" type="Button" parent="Menu/MenuVBox"]
 margin_left = 194.0
-margin_top = 180.0
+margin_top = 200.0
 margin_right = 254.0
-margin_bottom = 215.0
+margin_bottom = 235.0
 size_flags_horizontal = 4
 text = "QUIT"
 
@@ -2072,27 +2081,27 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Controls" type="Panel" parent="Menu"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -158.0
-margin_top = -99.0
-margin_right = 182.0
-margin_bottom = 99.0
+margin_left = -156.0
+margin_top = -127.0
+margin_right = 180.0
+margin_bottom = 127.0
 
 [node name="Label" type="Label" parent="Menu/Controls"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -107.0
-margin_top = 11.0
-margin_right = 107.0
-margin_bottom = 145.0
+margin_left = -124.0
+margin_right = 124.0
+margin_bottom = 189.0
 text = "--CONTROLS--
 WASD : MOVE
 MOUSE : LOOK
-LEFT MOUSE : SHOOT"
+LEFT MOUSE : SHOOT
+ESC : BACK/QUIT
+F11 : TOGGLE FULLSCREEN"
 align = 1
 
 [node name="ControlsBack" type="Button" parent="Menu/Controls"]
@@ -2104,6 +2113,52 @@ margin_left = -32.0
 margin_top = -46.0
 margin_right = 33.0
 margin_bottom = -11.0
+text = "BACK"
+
+[node name="About" type="Panel" parent="Menu"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -125.0
+margin_right = 228.0
+margin_bottom = 125.0
+
+[node name="Tools" type="Label" parent="Menu/About"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = 11.0
+margin_right = -13.0
+margin_bottom = -11.0
+text = "MADE BY PHOTOSYNTHESAUCE USING:
+- GODOT & GDSCRIPT
+- ASPERITE & CROCOTILE 3D
+- 1BITDRAGON, AUDACITY & JSFXR"
+
+[node name="PROTECT" type="Label" parent="Menu/About"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = 29.0
+margin_right = 173.0
+margin_bottom = 58.0
+text = "ABOVE ALL, PROTECT THE HARVEST"
+align = 2
+
+[node name="AboutBack" type="Button" parent="Menu/About"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = -52.0
+margin_right = 33.0
+margin_bottom = -17.0
 text = "BACK"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -2122,9 +2177,11 @@ autoplay = true
 
 [connection signal="pressed" from="Menu/MenuVBox/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Menu/MenuVBox/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Menu/MenuVBox/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="Menu/MenuVBox/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="toggled" from="Menu/SettingsVBox/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="toggled" from="Menu/SettingsVBox/Music" to="." method="_on_Music_toggled"]
 [connection signal="pressed" from="Menu/SettingsVBox/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="Menu/SettingsVBox/Back" to="." method="_on_SettingsBack_pressed"]
 [connection signal="pressed" from="Menu/Controls/ControlsBack" to="." method="_on_ControlsBack_pressed"]
+[connection signal="pressed" from="Menu/About/AboutBack" to="." method="_on_AboutBack_pressed"]
