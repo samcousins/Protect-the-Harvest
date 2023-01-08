@@ -33,6 +33,7 @@ func add_main_menu():
 	main_menu.connect("music_toggled", self, "_on_music_toggled")
 	
 	main_menu.update_highscore(highscore)
+	main_menu.set_default_music(play_music)
 	add_child(main_menu)
 
 func _on_start_game():

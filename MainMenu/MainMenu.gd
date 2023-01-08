@@ -5,6 +5,7 @@ signal music_toggled(state)
 
 onready var main_menu = $Menu/MenuVBox
 onready var settings = $Menu/SettingsVBox
+onready var controls = $Menu/Controls
 
 func _ready():
 	main_menu.visible = true
@@ -56,3 +57,16 @@ func _on_SettingsBack_pressed():
 
 func _on_Fullscreen_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
+
+
+func _on_Controls_pressed():
+	settings.visible = false
+	controls.visible = true
+
+
+func _on_ControlsBack_pressed():
+	settings.visible = true
+	controls.visible = false
+
+func set_default_music(state):
+	$Menu/SettingsVBox/Music.pressed = state

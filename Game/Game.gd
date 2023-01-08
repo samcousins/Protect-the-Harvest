@@ -41,6 +41,7 @@ func game_over():
 	score_text.text = "Score: " + str(stepify(score, 0.01))
 	game_over_ui.visible = true
 	
+	$Music.stop()
 	$gameOver.play()
 	
 	get_tree().paused = true
