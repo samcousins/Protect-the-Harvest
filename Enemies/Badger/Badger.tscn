@@ -48,6 +48,18 @@ tracks/2/keys = {
 "method": "attack"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.00733358, 0.171378, -0.201646 ), Vector3( 0.007, 0.171, 1 ), Vector3( 0.007, 0.171, -1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Walking"
@@ -65,13 +77,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.507639, 0, -0.41646, 0, 1, 0, 4.37114e-08
 script = ExtResource( 1 )
 
 [node name="Badger" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.17752, 0, 1.50996e-07, 0, 0.822483, 0, -1.778e-07, 0, -1, 0.571007, 0, -0.926471 )
+transform = Transform( -1.062, 0, 1.50996e-07, 0, 0.938, 0, -1.60358e-07, 0, -1, 0.5248, 0, -0.613712 )
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 target_desired_distance = 2.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00733358, 0.171378, -0.201646 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00726686, 0.171302, -0.361317 )
 shape = SubResource( 3 )
 
 [node name="Cooldown" type="Timer" parent="."]
