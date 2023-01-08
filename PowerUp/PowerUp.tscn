@@ -22,7 +22,7 @@ tracks/0/keys = {
 }
 
 [node name="PowerUp" type="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681188, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="Img" type="Sprite3D" parent="."]
