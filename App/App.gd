@@ -10,6 +10,8 @@ var play_music := true
 
 var highscore := 0.0
 
+var unlock_fps := false
+
 var quit_cooldown
 var can_quit := true
 
@@ -31,9 +33,11 @@ func add_main_menu():
 	
 	main_menu.connect("start_game", self, "_on_start_game")
 	main_menu.connect("music_toggled", self, "_on_music_toggled")
+	main_menu.connect("fps_toggled", self, "_on_fps_toggled")
 	
 	main_menu.update_highscore(highscore)
 	main_menu.set_default_music(play_music)
+	main_menu.set_unlock_fps(unlock_fps)
 	add_child(main_menu)
 
 func _on_start_game():
@@ -74,3 +78,6 @@ func _on_game_over(score):
 func _on_music_toggled(state):
 	print("Play music: " + str(state))
 	play_music = state
+
+func _on_fps_toggled(state):
+	unlock_fps = state

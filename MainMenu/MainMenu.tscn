@@ -2021,15 +2021,14 @@ size_flags_horizontal = 4
 text = "QUIT"
 
 [node name="SettingsVBox" type="VBoxContainer" parent="Menu"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -102.0
-margin_top = -97.5
+margin_top = -119.5
 margin_right = 102.0
-margin_bottom = 97.5
+margin_bottom = 119.5
 
 [node name="Title" type="Label" parent="Menu/SettingsVBox"]
 margin_right = 204.0
@@ -2055,20 +2054,26 @@ text = "MUSIC"
 align = 1
 icon_align = 1
 
+[node name="Unlock FPS" type="CheckButton" parent="Menu/SettingsVBox"]
+margin_top = 121.0
+margin_right = 204.0
+margin_bottom = 161.0
+text = "UNLOCK FPS"
+
 [node name="Controls" type="Button" parent="Menu/SettingsVBox"]
 margin_left = 10.0
-margin_top = 121.0
+margin_top = 165.0
 margin_right = 193.0
-margin_bottom = 156.0
+margin_bottom = 200.0
 size_flags_horizontal = 4
 text = "SHOW CONTROLS"
 icon_align = 1
 
 [node name="Back" type="Button" parent="Menu/SettingsVBox"]
 margin_left = 69.0
-margin_top = 160.0
+margin_top = 204.0
 margin_right = 134.0
-margin_bottom = 195.0
+margin_bottom = 239.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "BACK"
@@ -2081,6 +2086,7 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Controls" type="Panel" parent="Menu"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -2181,6 +2187,7 @@ autoplay = true
 [connection signal="pressed" from="Menu/MenuVBox/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="toggled" from="Menu/SettingsVBox/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="toggled" from="Menu/SettingsVBox/Music" to="." method="_on_Music_toggled"]
+[connection signal="toggled" from="Menu/SettingsVBox/Unlock FPS" to="." method="_on_Unlock_FPS_toggled"]
 [connection signal="pressed" from="Menu/SettingsVBox/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="Menu/SettingsVBox/Back" to="." method="_on_SettingsBack_pressed"]
 [connection signal="pressed" from="Menu/Controls/ControlsBack" to="." method="_on_ControlsBack_pressed"]

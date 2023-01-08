@@ -2,6 +2,7 @@ extends Node
 
 signal start_game
 signal music_toggled(state)
+signal fps_toggled(state)
 
 onready var main_menu = $Menu/MenuVBox
 onready var settings = $Menu/SettingsVBox
@@ -74,6 +75,9 @@ func _on_ControlsBack_pressed():
 func set_default_music(state):
 	$Menu/SettingsVBox/Music.pressed = state
 
+func set_unlock_fps(state):
+	$"Menu/SettingsVBox/Unlock FPS".pressed = state
+
 
 func _on_About_pressed():
 	main_menu.visible = false
@@ -83,3 +87,10 @@ func _on_About_pressed():
 func _on_AboutBack_pressed():
 	main_menu.visible = true
 	about.visible = false
+
+func _on_Unlock_FPS_toggled(button_pressed):
+	emit_signal("fps_toggled", button_pressed)
+	if button_pressed:
+		Engine.set_target_fps(1000)
+	else:
+		Engine.set_target_fps(40)
