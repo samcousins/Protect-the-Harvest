@@ -53,7 +53,7 @@ func die():
 	queue_free()
 
 func attack():
-	if can_attack:
+	if can_attack and is_instance_valid(current_target):
 		current_target.attacked(1)
 		can_attack = false
 		$Cooldown.start()
