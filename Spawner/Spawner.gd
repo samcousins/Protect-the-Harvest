@@ -10,6 +10,7 @@ var reverse_dir := false
 
 func _ready():
 	timer.start()
+	randomize()
 	offset += rand_range(0.0, 100.0)
 
 
@@ -26,5 +27,6 @@ func _on_SpawnTimer_timeout():
 	badger.scale *= 0.5
 	game.add_child(badger)
 	
+	randomize()
 	timer.wait_time = rand_range(2.0, 5.0)
 	timer.start()

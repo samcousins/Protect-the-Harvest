@@ -22,12 +22,13 @@ onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
 
 var death_sound_sc = preload("res://Enemies/Badger/BadgerDeathSound.tscn")
 
-var power_up_sc = preload("res://PowerUp/PowerUp.tscn")
-var power_up_chance := 0.2
+var speed_power_up_sc = preload("res://PowerUps/SpeedUpPowerup/SpeedUpPowerUp.tscn")
+var speed_power_up_chance := 0.2
 
 var blood_sc = preload("res://Enemies/Badger/Blood.tscn")
 
 func _ready():
+	randomize()
 	find_new_target()
 	anim_player.play("Walking")
 
@@ -84,10 +85,10 @@ func spawn_death_noise():
 
 func drop_power_up():
 	var roll = randf()
-	if roll <= power_up_chance:
-		var power_up = power_up_sc.instance()
-		power_up.global_transform = global_transform
-		get_parent().add_child(power_up)
+	if roll <= speed_power_up_chance:
+		var speed_power_up = speed_power_up_sc.instance()
+		speed_power_up.global_transform = global_transform
+		get_parent().add_child(speed_power_up)
 
 func attack():
 	if can_attack and is_instance_valid(current_target):
