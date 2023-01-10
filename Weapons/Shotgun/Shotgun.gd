@@ -41,6 +41,8 @@ func _on_Cooldown_timeout():
 func power_up(power_name, power_time):
 	if power_name == "speed_up":
 		speed_up(power_time)
+	if power_name == "shells":
+		shells(power_time)
 
 func speed_up(power_time):
 	speed_up_anim.visible = true
@@ -52,13 +54,17 @@ func speed_up(power_time):
 	else:
 		speed_up_timer.remaining_time = power_time
 
-func _on_PowerUp_timeout():
-	power_down()
-	
-func power_down():
+
+func shells(power_time):
+	pass
+
+
+func speed_power_down():
 	speed_up_anim.visible = false
 	anim.playback_speed = 1
 	cooldown.wait_time = cooldown_time
-	powered_up = false
+	sped_up = false
 
 
+func _on_SpeedUpTimer_timeout():
+	speed_power_down()
