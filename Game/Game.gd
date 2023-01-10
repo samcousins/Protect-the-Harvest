@@ -13,6 +13,8 @@ var score := 0.0
 var play_music = true
 
 func _ready():
+	$EnvironmentParent/Player.connect("player_died", self, "_on_player_died")
+	
 	game_over_ui.visible = false
 	
 	var objectives = get_tree().get_nodes_in_group("objectives")
@@ -35,6 +37,9 @@ func _on_obj_destroyed():
 	num_objectives -= 1
 	if num_objectives <= 0:
 		game_over()
+
+func _on_player_died():
+	game_over()
 
 func game_over():
 	emit_signal("game_over", score)

@@ -10,7 +10,7 @@ material = SubResource( 3 )
 
 [sub_resource type="SphereShape" id=2]
 
-[node name="Fireball" type="KinematicBody"]
+[node name="Fireball" type="Area"]
 script = ExtResource( 1 )
 
 [node name="Mesh" type="MeshInstance" parent="."]
@@ -24,4 +24,5 @@ disabled = true
 
 [node name="Lifespan" type="Timer" parent="."]
 
+[connection signal="body_shape_entered" from="." to="." method="_on_Fireball_body_shape_entered"]
 [connection signal="timeout" from="Lifespan" to="." method="_on_Lifespan_timeout"]

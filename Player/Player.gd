@@ -1,19 +1,27 @@
 extends KinematicBody
 
-onready var camera = $Pivot/Camera
+signal player_died
 
-var gravity = -30
-var max_speed = 8
-var mouse_sensitivity = 0.004  # radians/pixel
+onready var camera = $Pivot/Camera
+onready var hp_ui = $HUD/Life
+
+var gravity := -30
+var max_speed := 8
+var mouse_sensitivity := 0.004  # radians/pixel
 
 var velocity = Vector3()
 
 var play_music := true
 
+var hp := 3
+
 onready var equipped_weapon = $Pivot/Shotgun
+
 
 func _ready():
 	$Start.play()
+	hp_ui.text = str(hp)
+
 
 func get_input():
 	var input_dir = Vector3()
@@ -41,6 +49,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("shoot"):
 		equipped_weapon.shoot()
 
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var desired_velocity = get_input() * max_speed
@@ -49,6 +58,14 @@ func _physics_process(delta):
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 
+
 func power_up(power_name, power_time):
 	equipped_weapon.power_up(power_name, power_time)
 	$PowerUp.play()
+
+
+func take_damage(amount):
+	hp -= amount
+	hp_ui = str(hp)
+	if hp == 0:
+		emit_signal("player_died")

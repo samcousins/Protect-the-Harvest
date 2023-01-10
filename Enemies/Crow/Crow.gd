@@ -3,7 +3,7 @@ extends KinematicBody
 export var target_path := NodePath()
 onready var target = get_node(target_path)
 
-var speed := 5.0
+var speed := 3.0
 
 var can_attack := true
 
