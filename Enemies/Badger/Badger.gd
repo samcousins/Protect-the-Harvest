@@ -23,19 +23,25 @@ onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
 var death_sound_sc = preload("res://Enemies/Badger/BadgerDeathSound.tscn")
 
 var speed_power_up_sc = preload("res://PowerUps/SpeedUpPowerup/SpeedUpPowerUp.tscn")
-var speed_power_up_chance := 0.2
+var speed_power_up_chance := 0.1
+
+var shells_power_up_sc = preload("res://PowerUps/ShellsPowerUp/ShellsPowerUp.tscn")
+var shell_power_up_chance := 0.2
 
 var blood_sc = preload("res://Enemies/Badger/Blood.tscn")
+
 
 func _ready():
 	randomize()
 	find_new_target()
 	anim_player.play("Walking")
 
+
 func take_damage(dmg):
 	hp -= dmg
-	if hp <= 0:
+	if hp == 0:
 		die()
+
 
 func _physics_process(delta):
 	if not current_target or not is_instance_valid(current_target):
@@ -66,11 +72,13 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity * speed * delta)
 
+
 func die():
 	spawn_death_noise()
 	spawn_blood()
 	drop_power_up()
 	queue_free()
+
 
 func spawn_blood():
 	var blood = blood_sc.instance()
@@ -78,17 +86,29 @@ func spawn_blood():
 	get_tree().root.add_child(blood)
 	queue_free()
 
+
 func spawn_death_noise():
 	var ds = death_sound_sc.instance()
 	ds.global_transform = global_transform
 	get_tree().root.add_child(ds)
 
+
 func drop_power_up():
 	var roll = randf()
-	if roll <= speed_power_up_chance:
+	print("Dropping power up")
+	if roll > 0.0 and roll <= speed_power_up_chance:
 		var speed_power_up = speed_power_up_sc.instance()
 		speed_power_up.global_transform = global_transform
 		get_parent().add_child(speed_power_up)
+	
+	elif roll > speed_power_up_chance and roll <= shell_power_up_chance:
+		var shells_power_up = shells_power_up_sc.instance()
+		shells_power_up.global_transform = global_transform
+		get_parent().add_child(shells_power_up)
+	
+	else:
+		pass
+
 
 func attack():
 	if can_attack and is_instance_valid(current_target):
@@ -96,8 +116,10 @@ func attack():
 		can_attack = false
 		$Cooldown.start()
 
+
 func _on_Cooldown_timeout():
 	can_attack = true
+
 
 func find_new_target():
 	current_target = null

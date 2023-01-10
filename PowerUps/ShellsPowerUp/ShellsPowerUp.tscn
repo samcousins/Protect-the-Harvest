@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://PowerUps/PowerUp.gd" type="Script" id=1]
-[ext_resource path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.png" type="Texture" id=2]
+[ext_resource path="res://PowerUps/ShellsPowerUp/Shells.png" type="Texture" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -21,10 +21,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[node name="Speed" type="Area"]
+[node name="Shells" type="Area"]
 script = ExtResource( 1 )
-power_up_time = 5.0
-power_up_name = "speed_up"
+power_up_time = 10.0
+power_up_name = "shells"
 power_up_icon = ExtResource( 2 )
 
 [node name="Img" type="Sprite3D" parent="."]

@@ -23,6 +23,5 @@ texture = ExtResource( 2 )
 transform = Transform( 1.25084, 0, 0, 0, 1.21567, 0, 0, 0, 1.29899, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[connection signal="area_shape_entered" from="." to="." method="_on_collision"]
 [connection signal="body_shape_entered" from="." to="." method="_on_collision"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_Death_timeout"]

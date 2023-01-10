@@ -1,17 +1,24 @@
 extends Area
 
-var direction = Vector3.FORWARD
-var speed := 30.0
+#var direction
+var muzzle_velocity := 7
+var direction
+
+var velocity = Vector3.ZERO
+export var g = Vector3.DOWN * 20
 
 var is_bullet := true
 
 var damage := 1
 
 func _ready():
+	scale = scale/4
 	set_as_toplevel(true)
 
 func _physics_process(delta):
-	global_translation += direction * speed * delta
+	velocity += g * delta
+	look_at(transform.origin + velocity.normalized(), Vector3.UP)
+	transform.origin += velocity * delta
 
 func _on_Death_timeout():
 	queue_free()
