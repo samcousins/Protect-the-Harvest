@@ -66,6 +66,6 @@ func power_up(power_name, power_time):
 
 func take_damage(amount):
 	hp -= amount
-	hp_ui = str(hp)
+	hp_ui.text = str(hp)
 	if hp == 0:
 		emit_signal("player_died")

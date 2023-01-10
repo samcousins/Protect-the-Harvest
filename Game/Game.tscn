@@ -4,10 +4,11 @@
 [ext_resource path="res://Environment/EnvironmentInherited.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objectives/Hay/Haybale.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Game.gd" type="Script" id=4]
-[ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Game/SpawnPath.gd" type="Script" id=6]
+[ext_resource path="res://Spawner/SpawnPath.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Crow/Crow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/gameOver.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music/PROTECTTHEHARVEST - OriginalCopy.wav" type="AudioStream" id=8]
+[ext_resource path="res://Enemies/Badger/Badger.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=12]
 sky_top_color = Color( 0.996078, 0.788235, 0.788235, 1 )
@@ -27,12 +28,6 @@ dof_blur_far_transition = 1.69
 dof_blur_far_amount = 0.08
 dof_blur_far_quality = 0
 glow_enabled = true
-
-[sub_resource type="Curve3D" id=10]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 11, 1.06072, 10, 0, 0, 0, 0, 0, 0, 11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 10 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
-}
 
 [node name="Game" type="Spatial"]
 pause_mode = 2
@@ -100,23 +95,17 @@ transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2
 [node name="Haybale4" parent="EnvironmentParent/Environment" instance=ExtResource( 3 )]
 transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.14872, 0, 3.58278 )
 
-[node name="SpawnPath" type="Path" parent="EnvironmentParent"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
-curve = SubResource( 10 )
-script = ExtResource( 6 )
+[node name="BadgerSpawnPath" parent="EnvironmentParent" instance=ExtResource( 5 )]
+to_spawn = ExtResource( 9 )
 game_path = NodePath("../..")
 
-[node name="SpawnTimer" type="Timer" parent="EnvironmentParent/SpawnPath"]
-wait_time = 20.0
-one_shot = true
-autostart = true
-
-[node name="Spawner" parent="EnvironmentParent/SpawnPath" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.06072, 10 )
-
-[node name="SpawnNoise" type="AudioStreamPlayer3D" parent="EnvironmentParent/SpawnPath"]
+[node name="CrowSpawnPath" parent="EnvironmentParent" instance=ExtResource( 5 )]
+transform = Transform( 1.50768, 0, 0, 0, 1, 0, 0, 0, 1.45763, 0, 2.6468, 0 )
+to_spawn = ExtResource( 6 )
+game_path = NodePath("../..")
+time_till_next_spawner = 20.0
+spawn_time_min = 10.0
+spawn_time_max = 20.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-
-[connection signal="timeout" from="EnvironmentParent/SpawnPath/SpawnTimer" to="EnvironmentParent/SpawnPath" method="_on_SpawnTimer_timeout"]

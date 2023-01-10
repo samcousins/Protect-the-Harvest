@@ -1,16 +1,19 @@
 extends PathFollow
 
-var badger_sc = preload("res://Enemies/Badger/Badger.tscn")
+var to_spawn : PackedScene
 
 onready var timer = $SpawnTimer
 
 var game
 
+var timer_min := 2.0
+var timer_max := 5.0
+
 var reverse_dir := false
 
 func _ready():
-	timer.start()
 	randomize()
+	timer.start()
 	offset += rand_range(0.0, 100.0)
 
 
@@ -22,11 +25,10 @@ func _process(delta):
 
 
 func _on_SpawnTimer_timeout():
-	var badger = badger_sc.instance()
-	badger.global_translation = global_translation
-	badger.scale *= 0.5
-	game.add_child(badger)
+	var spawn = to_spawn.instance()
+	spawn.translation = global_translation
+	game.add_child(spawn)
 	
 	randomize()
-	timer.wait_time = rand_range(2.0, 5.0)
+	timer.wait_time = rand_range(timer_min, timer_max)
 	timer.start()
