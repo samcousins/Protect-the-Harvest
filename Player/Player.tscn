@@ -42,7 +42,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0 )
 current = true
 
 [node name="Shotgun" parent="Pivot" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.429651, -0.298691, -0.620401 )
+transform = Transform( 0.999779, 0, -0.0210122, -0.000605025, 0.999585, -0.0287876, 0.0210035, 0.028794, 0.999365, 0.429651, -0.298691, -0.620401 )
 
 [node name="Listener" type="Listener" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )

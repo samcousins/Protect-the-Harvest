@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [node name="Shells" type="Area"]
 script = ExtResource( 1 )
-power_up_time = 10.0
+power_up_time = 5.0
 power_up_name = "shells"
 power_up_icon = ExtResource( 2 )
 
