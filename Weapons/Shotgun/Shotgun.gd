@@ -6,17 +6,17 @@ export var number_of_shells := 20
 var spread := 1.0
 
 var can_shoot := true
-var powered_up := false
+var sped_up := false
 
 onready var cooldown : Timer = $Cooldown
 var cooldown_time := 0.5
 onready var anim : AnimationPlayer = $AnimationPlayer
 
-onready var power_up_timer : Timer = $PowerUp
-onready var power_up_anim = $ShotgunCroc/PoweredUpAnim
+onready var speed_up_timer : Timer = $SpeedUpTimer
+onready var speed_up_anim = $ShotgunCroc/SpeedUpAnim
 
 func _ready():
-	power_up_anim.visible = false
+	speed_up_anim.visible = false
 	cooldown.wait_time = cooldown_time
 
 func shoot():
@@ -38,21 +38,25 @@ func shoot():
 func _on_Cooldown_timeout():
 	can_shoot = true
 
-func power_up(power_time):
-	power_up_anim.visible = true
-	if not powered_up:
+func power_up(power_name, power_time):
+	if power_name == "speed_up":
+		speed_up(power_time)
+
+func speed_up(power_time):
+	speed_up_anim.visible = true
+	if not sped_up:
 		anim.playback_speed = 2
 		cooldown.wait_time = cooldown_time/2
-		power_up_timer.wait_time = power_time
-		power_up_timer.start()
+		speed_up_timer.wait_time = power_time
+		speed_up_timer.start()
 	else:
-		power_up_timer.remaining_time = power_time
+		speed_up_timer.remaining_time = power_time
 
 func _on_PowerUp_timeout():
 	power_down()
 	
 func power_down():
-	power_up_anim.visible = false
+	speed_up_anim.visible = false
 	anim.playback_speed = 1
 	cooldown.wait_time = cooldown_time
 	powered_up = false

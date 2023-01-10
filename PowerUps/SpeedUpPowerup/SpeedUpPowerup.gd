@@ -7,7 +7,7 @@ func _ready():
 
 func _on_body_shape_entered(_rid, body, _bsi, _lsi):
 	if body.has_method("power_up"):
-		body.power_up(power_up_time)
+		body.power_up("speed_up", power_up_time)
 		queue_free()
 
 func _on_Death_timeout():

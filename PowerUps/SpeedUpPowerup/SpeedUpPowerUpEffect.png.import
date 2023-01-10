@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/PowerUpEffect.png-baf0a353f3718a47701d2a854039a5b4.s3tc.stex"
-path.etc2="res://.import/PowerUpEffect.png-baf0a353f3718a47701d2a854039a5b4.etc2.stex"
+path.s3tc="res://.import/SpeedUpPowerUpEffect.png-adff071191d1723ac49c8215f432cce0.s3tc.stex"
+path.etc2="res://.import/SpeedUpPowerUpEffect.png-adff071191d1723ac49c8215f432cce0.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://PowerUp/PowerUpEffect.png"
-dest_files=[ "res://.import/PowerUpEffect.png-baf0a353f3718a47701d2a854039a5b4.s3tc.stex", "res://.import/PowerUpEffect.png-baf0a353f3718a47701d2a854039a5b4.etc2.stex" ]
+source_file="res://PowerUps/SpeedUpPowerup/SpeedUpPowerUpEffect.png"
+dest_files=[ "res://.import/SpeedUpPowerUpEffect.png-adff071191d1723ac49c8215f432cce0.s3tc.stex", "res://.import/SpeedUpPowerUpEffect.png-adff071191d1723ac49c8215f432cce0.etc2.stex" ]
 
 [params]
 

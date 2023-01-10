@@ -49,6 +49,6 @@ func _physics_process(delta):
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 
-func power_up(power_time):
-	equipped_weapon.power_up(power_time)
+func power_up(power_name, power_time):
+	equipped_weapon.power_up(power_name, power_time)
 	$PowerUp.play()

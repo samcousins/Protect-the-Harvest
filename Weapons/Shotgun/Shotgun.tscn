@@ -3,7 +3,7 @@
 [ext_resource path="res://Weapons/Shotgun/shoot.wav" type="AudioStream" id=1]
 [ext_resource path="res://Weapons/Shotgun/Shotgun.gd" type="Script" id=2]
 [ext_resource path="res://Weapons/Shotgun/ShotgunCroc.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PowerUp/PowerUpEffect.png" type="Texture" id=4]
+[ext_resource path="res://PowerUps/SpeedUpPowerup/SpeedUpPowerUpEffect.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 19
@@ -69,63 +69,61 @@ one_shot = true
 [node name="ShotgunCroc" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.000551515, 0, -0.049997, 0, 0.05, 0, 0.049997, 0, 0.000551515, 0.087124, -0.0840761, -0.064786 )
 
-[node name="PoweredUpAnim" type="Spatial" parent="ShotgunCroc"]
+[node name="SpeedUpAnim," type="Spatial" parent="ShotgunCroc"]
 transform = Transform( 0.220606, 0, 19.9988, 0, 20, 0, -19.9988, 0, 0.220606, 1.27642, 1.68152, 1.75666 )
 visible = false
 
-[node name="PoweredUp" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, -0.0203924, 0.0597572, 0.149332 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
+frame = 2
 playing = true
 
-[node name="PoweredUp2" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp2" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, 0.0464207, 0.0597572, 0.149332 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 2
+frame = 1
 playing = true
 
-[node name="PoweredUp3" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp3" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, -0.0203924, 0.108295, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 2
+frame = 1
 playing = true
 
-[node name="PoweredUp4" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp4" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, 0.0464207, 0.108295, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
-[node name="PoweredUp5" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp5" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, -0.0321743, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 2
+frame = 1
 playing = true
 
-[node name="PoweredUp6" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp6" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, 0.0498955, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
-[node name="PoweredUp7" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp7" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, -0.0507272, 0.148302 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 2
+frame = 1
 playing = true
 
-[node name="PoweredUp8" type="AnimatedSprite3D" parent="ShotgunCroc/PoweredUpAnim"]
+[node name="PoweredUp8" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim,"]
 transform = Transform( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, 0.00362358, 0.148302 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -135,8 +133,8 @@ anims/Cooldown = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405758, -0.336517 )
 stream = ExtResource( 1 )
 
-[node name="PowerUp" type="Timer" parent="."]
+[node name="SpeedUpTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
-[connection signal="timeout" from="PowerUp" to="." method="_on_PowerUp_timeout"]
+[connection signal="timeout" from="SpeedUpTimer" to="." method="_on_PowerUp_timeout"]
