@@ -9,6 +9,7 @@ onready var settings = $Menu/SettingsVBox
 onready var controls = $Menu/Controls
 onready var about = $Menu/About
 
+
 func _ready():
 	main_menu.visible = true
 	settings.visible = false
@@ -17,6 +18,7 @@ func _ready():
 	$Menu/SettingsVBox/Fullscreen.pressed = OS.window_fullscreen
 	
 	fade_up()
+
 
 func fade_up():
 	$Menu/BlackScreen.visible = true
@@ -31,6 +33,7 @@ func fade_up():
 		0.0
 	)
 	$FadeUp.start()
+
 
 func _on_Start_pressed():
 	emit_signal("start_game")
@@ -61,6 +64,7 @@ func _on_SettingsBack_pressed():
 func _on_Fullscreen_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
 
+
 func _on_Controls_pressed():
 	settings.visible = false
 	controls.visible = true
@@ -70,8 +74,10 @@ func _on_ControlsBack_pressed():
 	settings.visible = true
 	controls.visible = false
 
+
 func set_default_music(state):
 	$Menu/SettingsVBox/Music.pressed = state
+
 
 func set_unlock_fps(state):
 	$"Menu/SettingsVBox/Unlock FPS".pressed = state
