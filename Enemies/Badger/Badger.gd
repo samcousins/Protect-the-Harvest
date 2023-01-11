@@ -95,7 +95,6 @@ func spawn_death_noise():
 
 func drop_power_up():
 	var roll = randf()
-	print("Dropping power up")
 	if roll > 0.0 and roll <= speed_power_up_chance:
 		var speed_power_up = speed_power_up_sc.instance()
 		speed_power_up.global_transform = global_transform
