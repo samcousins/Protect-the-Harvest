@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/Shotgun/Shotgun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/icon.png" type="Texture" id=3]
 [ext_resource path="res://Player/start.wav" type="AudioStream" id=4]
 [ext_resource path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.wav" type="AudioStream" id=5]
+[ext_resource path="res://Player/Reticule.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape" id=3]
 
@@ -31,6 +32,19 @@ margin_left = -40.0
 margin_bottom = 29.0
 text = "3"
 
+[node name="Reticule" type="TextureRect" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+
 [node name="Body" type="CollisionShape" parent="."]
 transform = Transform( 0.3, 0, 0, 0, -1.31134e-08, -0.5, 0, 0.3, -2.18557e-08, 0, 0, 0 )
 shape = SubResource( 3 )
@@ -51,7 +65,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0 )
 current = true
 
 [node name="Shotgun" parent="Pivot" instance=ExtResource( 2 )]
-transform = Transform( 0.999779, 0, -0.0210122, -0.000605025, 0.999585, -0.0287876, 0.0210035, 0.028794, 0.999365, 0.429651, -0.298691, -0.620401 )
+transform = Transform( 0.999997, 0.000592537, -0.00247126, -0.000746823, 0.998019, -0.0629058, 0.00242911, 0.0629075, 0.998017, 0.343282, -0.298691, -0.620401 )
 
 [node name="Listener" type="Listener" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )
