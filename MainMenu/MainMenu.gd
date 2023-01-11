@@ -14,7 +14,6 @@ func _ready():
 	settings.visible = false
 	controls.visible = false
 	about.visible = false
-	
 	$Menu/SettingsVBox/Fullscreen.pressed = OS.window_fullscreen
 	
 	fade_up()
@@ -61,7 +60,6 @@ func _on_SettingsBack_pressed():
 
 func _on_Fullscreen_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
-
 
 func _on_Controls_pressed():
 	settings.visible = false

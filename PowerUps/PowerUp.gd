@@ -14,7 +14,6 @@ func _ready():
 
 func _on_body_shape_entered(_rid, body, _bsi, _lsi):
 	if body.has_method("power_up") and not spent:
-		print("Powered up")
 		spent = true
 		body.power_up(power_up_name, power_up_time)
 		queue_free()
