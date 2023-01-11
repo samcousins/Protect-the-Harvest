@@ -40,11 +40,13 @@ func add_main_menu():
 	main_menu.set_unlock_fps(unlock_fps)
 	add_child(main_menu)
 
+
 func _on_start_game():
 	main_menu.queue_free()
 	main_menu = null
 	get_tree().paused = false
 	add_game()
+
 
 func add_game():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -63,8 +65,10 @@ func add_game():
 	
 	add_child(game)
 
+
 func _on_player_exited():
 	return_to_menu()
+
 
 func return_to_menu():
 	_save_game()
@@ -72,15 +76,19 @@ func return_to_menu():
 	game = null
 	add_main_menu()
 
+
 func _on_game_over(score):
 	if score > highscore:
 		highscore = score
 
+
 func _on_music_toggled(state):
 	play_music = state
 
+
 func _on_fps_toggled(state):
 	unlock_fps = state
+
 
 func _save_game():
 	var save_dict = {
