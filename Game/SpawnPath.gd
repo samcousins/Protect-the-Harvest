@@ -17,12 +17,15 @@ export var spawn_time_max := 5.0
 
 var reverse_dir := true
 
+
 func _ready():
 	$SpawnTimer.wait_time = time_till_next_spawner
 	add_spawner(false)
 
+
 func _on_SpawnTimer_timeout():
 	add_spawner(true)
+
 
 func add_spawner(add_delay):
 	var spawner = enemy_spawner.instance()

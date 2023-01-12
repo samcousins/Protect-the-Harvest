@@ -12,8 +12,10 @@ var is_crow
 
 onready var target = get_parent().get_node("EnvironmentParent/Player")
 
+
 func _ready():
 	$Anim.play("Hovering")
+
 
 func _process(delta):
 	var target_pos = Vector3(target.global_translation.x, global_translation.y, target.global_translation.z)
@@ -25,6 +27,7 @@ func _process(delta):
 		global_translation += direction * speed * delta
 	elif can_attack:
 		attack()
+
 
 func attack():
 	can_attack = false
@@ -45,10 +48,12 @@ func attack():
 func _on_AttackCooldown_timeout():
 	can_attack = true
 
+
 func take_damage(dmg):
 	hp -= dmg
 	if hp == 0:
 		die()
+
 
 func die():
 	queue_free()

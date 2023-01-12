@@ -6,6 +6,7 @@ var speed := 5
 var is_fireball := true
 var exploded := false
 
+
 func _process(delta):
 	global_translation += direction * speed * delta
 

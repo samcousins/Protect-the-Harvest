@@ -11,17 +11,21 @@ var is_bullet := true
 
 var damage := 1
 
+
 func _ready():
 	scale = scale/4
 	set_as_toplevel(true)
+
 
 func _physics_process(delta):
 	velocity += g * delta
 	look_at(transform.origin + velocity.normalized(), Vector3.UP)
 	transform.origin += velocity * delta
 
+
 func _on_Death_timeout():
 	queue_free()
+
 
 func _on_collision(_rid, thing, _index, _lsi):
 	if "is_bullet" in thing:

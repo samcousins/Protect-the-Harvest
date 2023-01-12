@@ -11,6 +11,7 @@ var timer_max := 5.0
 
 var reverse_dir := false
 
+
 func _ready():
 	randomize()
 	timer.start()
