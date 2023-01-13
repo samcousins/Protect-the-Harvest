@@ -36,13 +36,12 @@ func shoot():
 		use_shell()
 	else:
 		use_bullet()
-	
-	anim.play("Cooldown")
-	$Shoot.play()
 
 
 func use_bullet():
 	spawn_projectile(0)
+	anim.play("Cooldown")
+	$Shoot.play()
 
 
 func spawn_projectile(spread):
@@ -87,6 +86,8 @@ func load_shells(power_time):
 func use_shell():
 	for n in bullets_in_shell:
 		spawn_projectile(shell_spread)
+	anim.play("ShotgunCooldown")
+	$Shoot.play()
 	shell_count -= 1
 	shells_count_ui.text = str(shell_count)
 	if shell_count == 0:
