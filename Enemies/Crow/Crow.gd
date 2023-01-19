@@ -12,6 +12,7 @@ var is_crow
 
 onready var target = get_parent().get_node("EnvironmentParent/Player")
 
+onready var beak = $CrowModel/Beak
 
 func _ready():
 	$Anim.play("Hovering")
@@ -34,11 +35,11 @@ func attack():
 	
 	var fb = fireball_sc.instance()
 	
-	fb.transform = $Beak.global_transform
+	fb.transform = beak.global_transform
 	
 	var target_pos = target.global_translation
 
-	fb.direction = $Beak.global_translation.direction_to(target_pos)
+	fb.direction = beak.global_translation.direction_to(target_pos)
 	
 	get_parent().add_child(fb)
 	
@@ -50,6 +51,7 @@ func _on_AttackCooldown_timeout():
 
 
 func take_damage(dmg):
+	print(name + " took damage")
 	hp -= dmg
 	if hp == 0:
 		die()
