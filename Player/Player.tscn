@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Weapons/Shotgun/Shotgun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Weapons/GunRemodelled/Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/icon.png" type="Texture" id=3]
 [ext_resource path="res://Player/start.wav" type="AudioStream" id=4]
 [ext_resource path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.wav" type="AudioStream" id=5]
@@ -62,11 +62,11 @@ material/0 = SubResource( 6 )
 [node name="Pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0 )
 
+[node name="Gun" parent="Pivot" instance=ExtResource( 2 )]
+transform = Transform( -0.199976, -0.000714568, -0.00302263, -0.000838043, 0.19983, 0.00820357, 0.00299075, 0.00821525, -0.199809, 0.239936, -0.265115, -0.385143 )
+
 [node name="Camera" type="Camera" parent="Pivot"]
 current = true
-
-[node name="Shotgun" parent="Pivot" instance=ExtResource( 2 )]
-transform = Transform( 0.999997, 0.000592537, -0.00247126, -0.000746823, 0.998019, -0.0629058, 0.00242911, 0.0629075, 0.998017, 0.343282, -0.298691, -0.620401 )
 
 [node name="Listener" type="Listener" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )

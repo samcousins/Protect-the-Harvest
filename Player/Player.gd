@@ -15,7 +15,7 @@ var play_music := true
 
 var hp := 3
 
-onready var equipped_weapon = $Pivot/Shotgun
+onready var equipped_weapon = $Pivot/Gun
 
 
 func _ready():

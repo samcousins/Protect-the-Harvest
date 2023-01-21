@@ -34,10 +34,14 @@ animations = [ {
 } ]
 
 [node name="Gun" instance=ExtResource( 1 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0 )
 script = ExtResource( 2 )
 
+[node name="bullet_spawn" type="Spatial" parent="Node2/root/barrel" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42109e-14, 0.397056, 2.25806 )
+
 [node name="ShellsCount" type="Label3D" parent="Node2/root/body" index="0"]
-transform = Transform( -4, 5.23065e-07, -3.01992e-07, 0, 2, 3.4641, 6.03983e-07, 3.4641, -2, -5.96777e-08, 0.432843, -0.871563 )
+transform = Transform( -1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0.431688, 0.446472, -0.0935785 )
 text = "10"
 font = SubResource( 1 )
 
@@ -48,7 +52,7 @@ transform = Transform( -4, -5.00043e-08, -6.0191e-07, 0, 3.98627, -0.331163, 6.0
 transform = Transform( 1, 1.42109e-14, -1.42109e-14, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, -0.0203924, 0.0903087, 0.174178 )
 frames = SubResource( 6 )
 animation = "PoweredUp"
-frame = 2
+frame = 1
 playing = true
 
 [node name="PoweredUp2" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="1"]
@@ -56,14 +60,12 @@ transform = Transform( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, 0
 visible = false
 frames = SubResource( 6 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
 [node name="Top" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="2"]
 transform = Transform( 1, 1.42109e-13, 9.71445e-16, 0, -0.110055, 0.995812, 0, -1.29678, -0.0845122, -0.0203924, 0.10724, 0.00177517 )
 frames = SubResource( 6 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
 [node name="PoweredUp4" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="3"]
@@ -71,32 +73,33 @@ transform = Transform( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055
 visible = false
 frames = SubResource( 6 )
 animation = "PoweredUp"
+frame = 2
 playing = true
 
 [node name="PoweredUp5" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="4"]
 transform = Transform( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, -0.0321743, 0.014201 )
 frames = SubResource( 6 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
 [node name="PoweredUp6" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="5"]
 transform = Transform( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, 0.0498955, 0.014201 )
 frames = SubResource( 6 )
 animation = "PoweredUp"
+frame = 2
 playing = true
 
 [node name="PoweredUp7" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="6"]
 transform = Transform( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, -0.0507272, 0.148302 )
 frames = SubResource( 6 )
 animation = "PoweredUp"
-frame = 1
 playing = true
 
 [node name="PoweredUp8" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="7"]
 transform = Transform( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, 0.00362358, 0.148302 )
 frames = SubResource( 6 )
 animation = "PoweredUp"
+frame = 2
 playing = true
 
 [node name="Shoot" type="AudioStreamPlayer3D" parent="." index="2"]

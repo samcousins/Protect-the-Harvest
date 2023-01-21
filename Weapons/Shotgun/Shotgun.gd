@@ -18,7 +18,7 @@ onready var speed_up_anim = $Node2/root/body/SpeedUpAnim
 
 onready var shells_count_ui = $Node2/root/body/ShellsCount
 
-onready var barrel := $Node2/root/barrel/bottom_barrel_hole
+onready var barrel := $Node2/root/barrel/bullet_spawn
 
 
 func _ready():
@@ -46,6 +46,7 @@ func spawn_projectile(spread):
 	randomize()
 	var bullet = bullet_sc.instance()
 	bullet.transform = barrel.global_transform
+	bullet.scale = Vector3(10, 10, 10)
 	bullet.rotation.x += rand_range(-(spread*0.25), spread*0.25)
 	bullet.rotation.y += rand_range(-spread, spread)
 	bullet.velocity = bullet.transform.basis.z * bullet.muzzle_velocity
