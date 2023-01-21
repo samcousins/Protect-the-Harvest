@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fireballExplodes.wav-0b05b7d476fa1e0f0c33f65f18ca386e.sample"
+
+[deps]
+
+source_file="res://Enemies/Crow/Fireball/fireballExplodes.wav"
+dest_files=[ "res://.import/fireballExplodes.wav-0b05b7d476fa1e0f0c33f65f18ca386e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

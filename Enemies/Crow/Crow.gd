@@ -4,7 +4,7 @@ var speed := 3.0
 
 var can_attack := true
 
-var fireball_sc = preload("res://Enemies/Crow/Fireball.tscn")
+var fireball_sc = preload("res://Enemies/Crow/Fireball/Fireball.tscn")
 
 var hp := 1
 
@@ -13,6 +13,10 @@ var is_crow
 onready var target = get_parent().get_node("EnvironmentParent/Player")
 
 onready var beak = $Node2/root/head2/beak
+
+var death_sound_sc = preload("res://Enemies/DeathSound.tscn")
+var blood_sc = preload("res://Enemies/Blood.tscn")
+var crow_death = preload("res://Enemies/Crow/crowhit.wav")
 
 func _ready():
 	$AnimationPlayer.play("flying")
@@ -43,6 +47,8 @@ func attack():
 	
 	get_parent().add_child(fb)
 	
+	$Shoot.play()
+	
 	$AttackCooldown.start()
 
 
@@ -58,4 +64,18 @@ func take_damage(dmg):
 
 
 func die():
+	spawn_death_noise()
+	spawn_blood()
 	queue_free()
+
+func spawn_blood():
+	var blood = blood_sc.instance()
+	blood.global_transform = global_transform
+	get_tree().root.add_child(blood)
+	queue_free()
+
+func spawn_death_noise():
+	var ds = death_sound_sc.instance()
+	ds.global_transform = global_transform
+	ds.sound = crow_death
+	get_tree().root.add_child(ds)

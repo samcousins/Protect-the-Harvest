@@ -20,7 +20,9 @@ onready var audio = $Audio
 onready var attacking_sound = preload("res://Enemies/Badger/attack.wav")
 onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
 
-var death_sound_sc = preload("res://Enemies/Badger/BadgerDeathSound.tscn")
+var death_sound_sc = preload("res://Enemies/DeathSound.tscn")
+var blood_sc = preload("res://Enemies/Blood.tscn")
+var badger_death = preload("res://Enemies/Badger/badgerDeath.wav")
 
 var speed_power_up_sc = preload("res://PowerUps/SpeedUpPowerup/SpeedUpPowerUp.tscn")
 var speed_power_up_chance := 0.1
@@ -28,7 +30,6 @@ var speed_power_up_chance := 0.1
 var shells_power_up_sc = preload("res://PowerUps/ShellsPowerUp/ShellsPowerUp.tscn")
 var shell_power_up_chance := 0.2
 
-var blood_sc = preload("res://Enemies/Badger/Blood.tscn")
 
 
 func _ready():
@@ -90,6 +91,7 @@ func spawn_blood():
 func spawn_death_noise():
 	var ds = death_sound_sc.instance()
 	ds.global_transform = global_transform
+	ds.sound = badger_death
 	get_tree().root.add_child(ds)
 
 

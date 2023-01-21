@@ -5,7 +5,7 @@
 [ext_resource path="res://Objectives/Hay/Haybale.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Game.gd" type="Script" id=4]
 [ext_resource path="res://Spawner/SpawnPath.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemies/Crow/BlockBench/CrowBlockbench.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Crow/BlockBench/Crow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/gameOver.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music/PROTECTTHEHARVEST - OriginalCopy.wav" type="AudioStream" id=8]
 [ext_resource path="res://Enemies/Badger/Badger.tscn" type="PackedScene" id=9]
