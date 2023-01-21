@@ -18,6 +18,7 @@ var death_sound_sc = preload("res://Enemies/DeathSound.tscn")
 var blood_sc = preload("res://Enemies/Blood.tscn")
 var crow_death = preload("res://Enemies/Crow/crowhit.wav")
 
+
 func _ready():
 	$AnimationPlayer.play("flying")
 
@@ -57,7 +58,6 @@ func _on_AttackCooldown_timeout():
 
 
 func take_damage(dmg):
-	print(name + " took damage")
 	hp -= dmg
 	if hp == 0:
 		die()
@@ -68,11 +68,13 @@ func die():
 	spawn_blood()
 	queue_free()
 
+
 func spawn_blood():
 	var blood = blood_sc.instance()
 	blood.global_transform = global_transform
 	get_tree().root.add_child(blood)
 	queue_free()
+
 
 func spawn_death_noise():
 	var ds = death_sound_sc.instance()
