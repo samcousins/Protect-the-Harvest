@@ -12,10 +12,10 @@ var is_crow
 
 onready var target = get_parent().get_node("EnvironmentParent/Player")
 
-onready var beak = $CrowModel/Beak
+onready var beak = $Node2/root/head2/beak
 
 func _ready():
-	$Anim.play("Hovering")
+	$AnimationPlayer.play("flying")
 
 
 func _process(delta):

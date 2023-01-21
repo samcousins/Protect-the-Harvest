@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/CrowRigged.glb-4f61689be3d882d8be8978d077e95e48.scn"
+path="res://.import/CrowBlockbench.gltf-3cea033b578aaf3736a98b65e2353cd2.scn"
 
 [deps]
 
-source_file="res://Enemies/Crow/CrowRigged.glb"
-dest_files=[ "res://.import/CrowRigged.glb-4f61689be3d882d8be8978d077e95e48.scn" ]
+source_file="res://Enemies/Crow/BlockBench/CrowBlockbench.gltf"
+dest_files=[ "res://.import/CrowBlockbench.gltf-3cea033b578aaf3736a98b65e2353cd2.scn" ]
 
 [params]
 
