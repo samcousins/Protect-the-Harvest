@@ -1,8 +1,8 @@
-extends PathFollow
+extends PathFollow3D
 
 var to_spawn : PackedScene
 
-onready var timer = $SpawnTimer
+@onready var timer = $SpawnTimer
 
 var game
 
@@ -15,7 +15,7 @@ var reverse_dir := false
 func _ready():
 	randomize()
 	timer.start()
-	offset += rand_range(0.0, 100.0)
+	offset += randf_range(0.0, 100.0)
 
 
 func _process(delta):
@@ -26,10 +26,10 @@ func _process(delta):
 
 
 func _on_SpawnTimer_timeout():
-	var spawn = to_spawn.instance()
-	spawn.translation = global_translation
+	var spawn = to_spawn.instantiate()
+	spawn.position = global_translation
 	game.add_child(spawn)
 	
 	randomize()
-	timer.wait_time = rand_range(timer_min, timer_max)
+	timer.wait_time = randf_range(timer_min, timer_max)
 	timer.start()

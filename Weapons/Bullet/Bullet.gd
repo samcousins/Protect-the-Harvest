@@ -1,11 +1,11 @@
-extends Area
+extends Area3D
 
 #var direction
 var muzzle_velocity := 7
 var direction
 
 var velocity = Vector3.ZERO
-export var g = Vector3.DOWN * 20
+@export var g = Vector3.DOWN * 20
 
 var is_bullet := true
 
@@ -14,7 +14,7 @@ var damage := 1
 
 func _ready():
 	scale = scale/4
-	set_as_toplevel(true)
+	set_as_top_level(true)
 
 
 func _physics_process(delta):

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/crowhit.wav-520bcb47fcc09507c3f0abf3d7be10ff.sample"
+type="AudioStreamWAV"
+uid="uid://8rnbpj4te05d"
+path="res://.godot/imported/crowhit.wav-520bcb47fcc09507c3f0abf3d7be10ff.sample"
 
 [deps]
 
 source_file="res://Enemies/Crow/crowhit.wav"
-dest_files=[ "res://.import/crowhit.wav-520bcb47fcc09507c3f0abf3d7be10ff.sample" ]
+dest_files=["res://.godot/imported/crowhit.wav-520bcb47fcc09507c3f0abf3d7be10ff.sample"]
 
 [params]
 

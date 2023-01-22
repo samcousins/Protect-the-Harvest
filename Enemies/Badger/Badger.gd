@@ -1,10 +1,10 @@
-extends KinematicBody
+extends CharacterBody3D
 
 var hp := 1
 
 var current_target
 
-onready var agent : NavigationAgent = $NavigationAgent
+@onready var agent : NavigationAgent3D = $NavigationAgent3D
 
 var speed := 100
 
@@ -14,11 +14,11 @@ var velocity := Vector3()
 
 var can_attack := true
 
-onready var anim_player = $AnimationPlayer
+@onready var anim_player = $AnimationPlayer
 
-onready var audio = $Audio
-onready var attacking_sound = preload("res://Enemies/Badger/attack.wav")
-onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
+@onready var audio = $Audio
+@onready var attacking_sound = preload("res://Enemies/Badger/attack.wav")
+@onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
 
 var death_sound_sc = preload("res://Enemies/DeathSound.tscn")
 var blood_sc = preload("res://Enemies/Blood.tscn")
@@ -71,7 +71,9 @@ func _physics_process(delta):
 	
 	velocity.y += gravity * delta
 	
-	velocity = move_and_slide(velocity * speed * delta)
+	set_velocity(velocity * speed * delta)
+	move_and_slide()
+	velocity = velocity
 
 
 func die():
@@ -82,14 +84,14 @@ func die():
 
 
 func spawn_blood():
-	var blood = blood_sc.instance()
+	var blood = blood_sc.instantiate()
 	blood.global_transform = global_transform
 	get_tree().root.add_child(blood)
 	queue_free()
 
 
 func spawn_death_noise():
-	var ds = death_sound_sc.instance()
+	var ds = death_sound_sc.instantiate()
 	ds.global_transform = global_transform
 	ds.sound = badger_death
 	get_tree().root.add_child(ds)
@@ -98,12 +100,12 @@ func spawn_death_noise():
 func drop_power_up():
 	var roll = randf()
 	if roll > 0.0 and roll <= speed_power_up_chance:
-		var speed_power_up = speed_power_up_sc.instance()
+		var speed_power_up = speed_power_up_sc.instantiate()
 		speed_power_up.global_transform = global_transform
 		get_parent().add_child(speed_power_up)
 	
 	elif roll > speed_power_up_chance and roll <= shell_power_up_chance:
-		var shells_power_up = shells_power_up_sc.instance()
+		var shells_power_up = shells_power_up_sc.instantiate()
 		shells_power_up.global_transform = global_transform
 		get_parent().add_child(shells_power_up)
 	

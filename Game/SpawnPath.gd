@@ -1,19 +1,19 @@
-extends Path
+extends Path3D
 
 var enemy_spawner = preload("res://Spawner/Spawner.tscn")
 
-export var to_spawn : PackedScene
+@export var to_spawn : PackedScene
 
-export var game_path := NodePath()
-onready var game = get_node(game_path)
+@export var game_path := NodePath()
+@onready var game = get_node(game_path)
 
-export var player_path := NodePath()
+@export var player_path := NodePath()
 
-export var time_till_next_spawner := 30.0
-export var time_to_add := 10.0
+@export var time_till_next_spawner := 30.0
+@export var time_to_add := 10.0
 
-export var spawn_time_min := 2.0
-export var spawn_time_max := 5.0
+@export var spawn_time_min := 2.0
+@export var spawn_time_max := 5.0
 
 var reverse_dir := true
 
@@ -28,7 +28,7 @@ func _on_SpawnTimer_timeout():
 
 
 func add_spawner(add_delay):
-	var spawner = enemy_spawner.instance()
+	var spawner = enemy_spawner.instantiate()
 	
 	spawner.to_spawn = to_spawn
 	spawner.game = game

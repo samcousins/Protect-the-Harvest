@@ -3,12 +3,12 @@
 [ext_resource path="res://Objectives/Hay/destruction.wav" type="AudioStream" id=1]
 [ext_resource path="res://Objectives/Hay/HayDestroyed.gd" type="Script" id=2]
 
-[node name="HayDestroyed" type="Spatial"]
+[node name="HayDestroyed" type="Node3D"]
 script = ExtResource( 2 )
 
 [node name="Destruction" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 1 )
-unit_db = 20.0
+volume_db = 20.0
 autoplay = true
 
 [connection signal="finished" from="Destruction" to="." method="_on_Destruction_finished"]

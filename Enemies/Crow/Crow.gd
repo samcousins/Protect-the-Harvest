@@ -1,4 +1,4 @@
-extends KinematicBody
+extends CharacterBody3D
 
 var speed := 3.0
 
@@ -10,9 +10,9 @@ var hp := 1
 
 var is_crow
 
-onready var target = get_parent().get_node("EnvironmentParent/Player")
+@onready var target = get_parent().get_node("EnvironmentParent/Player")
 
-onready var beak = $Node2/root/head2/beak
+@onready var beak = $Node2/root/head2/beak
 
 var death_sound_sc = preload("res://Enemies/DeathSound.tscn")
 var blood_sc = preload("res://Enemies/Blood.tscn")
@@ -38,7 +38,7 @@ func _process(delta):
 func attack():
 	can_attack = false
 	
-	var fb = fireball_sc.instance()
+	var fb = fireball_sc.instantiate()
 	
 	fb.transform = beak.global_transform
 	
@@ -70,14 +70,14 @@ func die():
 
 
 func spawn_blood():
-	var blood = blood_sc.instance()
+	var blood = blood_sc.instantiate()
 	blood.global_transform = global_transform
 	get_tree().root.add_child(blood)
 	queue_free()
 
 
 func spawn_death_noise():
-	var ds = death_sound_sc.instance()
+	var ds = death_sound_sc.instantiate()
 	ds.global_transform = global_transform
 	ds.sound = crow_death
 	get_tree().root.add_child(ds)

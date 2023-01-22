@@ -1,4 +1,4 @@
-extends TextureProgress
+extends TextureProgressBar
 
 var bar_green = preload("res://Objectives/Hay/GreenBar.png")
 var bar_yellow = preload("res://Objectives/Hay/YellowBar.png")

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/attack.wav-22a3f65b43275d2bd2ebcebe1d6d1e03.sample"
+type="AudioStreamWAV"
+uid="uid://fah4l1hok7pn"
+path="res://.godot/imported/attack.wav-22a3f65b43275d2bd2ebcebe1d6d1e03.sample"
 
 [deps]
 
 source_file="res://Enemies/Badger/attack.wav"
-dest_files=[ "res://.import/attack.wav-22a3f65b43275d2bd2ebcebe1d6d1e03.sample" ]
+dest_files=["res://.godot/imported/attack.wav-22a3f65b43275d2bd2ebcebe1d6d1e03.sample"]
 
 [params]
 

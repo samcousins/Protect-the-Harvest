@@ -19,7 +19,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("fullscreen"):
-		OS.window_fullscreen = !OS.window_fullscreen
+		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
 
 
 func add_main_menu():
@@ -29,11 +29,11 @@ func add_main_menu():
 		main_menu.queue_free()
 	
 	main_menu = null
-	main_menu = main_menu_sc.instance()
+	main_menu = main_menu_sc.instantiate()
 	
-	main_menu.connect("start_game", self, "_on_start_game")
-	main_menu.connect("music_toggled", self, "_on_music_toggled")
-	main_menu.connect("fps_toggled", self, "_on_fps_toggled")
+	main_menu.connect("start_game",Callable(self,"_on_start_game"))
+	main_menu.connect("music_toggled",Callable(self,"_on_music_toggled"))
+	main_menu.connect("fps_toggled",Callable(self,"_on_fps_toggled"))
 	
 	main_menu.update_highscore(highscore)
 	main_menu.set_default_music(play_music)
@@ -56,12 +56,12 @@ func add_game():
 	
 	game = null
 	
-	game = game_sc.instance()
+	game = game_sc.instantiate()
 	
 	game.play_music = play_music
 	
-	game.connect("player_exited", self, "_on_player_exited")
-	game.connect("game_over", self, "_on_game_over")
+	game.connect("player_exited",Callable(self,"_on_player_exited"))
+	game.connect("game_over",Callable(self,"_on_game_over"))
 	
 	add_child(game)
 
@@ -92,14 +92,14 @@ func _on_fps_toggled(state):
 
 func _save_game():
 	var save_dict = {
-		"Highscore" : stepify(highscore, 0.01),
+		"Highscore" : snapped(highscore, 0.01),
 		"FPS" : unlock_fps,
 		"Music" : play_music,
-		"Fullscreen" : OS.window_fullscreen
+		"Fullscreen" : ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 	}
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
-	save_game.store_line(to_json(save_dict))
+	save_game.store_line(JSON.new().stringify(save_dict))
 	save_game.close()
 
 
@@ -109,7 +109,9 @@ func _load_game():
 		return
 	
 	save_game.open("user://savegame.save", File.READ)
-	var app_data = parse_json(save_game.get_line())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(save_game.get_line())
+	var app_data = test_json_conv.get_data()
 	if app_data:
 		if app_data.has("Highscore"):
 			print("Data has highscore")
@@ -122,4 +124,4 @@ func _load_game():
 			play_music = app_data["Music"]
 		if app_data.has("Fullscreen"):
 			print("Data has fullscreen")
-			OS.window_fullscreen = app_data["Fullscreen"]
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (app_data["Fullscreen"]) else Window.MODE_WINDOWED

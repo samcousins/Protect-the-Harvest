@@ -9,7 +9,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticleProcessMaterial" id=3]
 direction = Vector3( 0, 10, 0 )
 gravity = Vector3( 0, -50, 0 )
 initial_velocity = 10.0
@@ -17,21 +17,21 @@ scale = 0.05
 scale_curve = SubResource( 2 )
 color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="StandardMaterial3D" id=4]
 albedo_color = Color( 0.305882, 0.172549, 0.172549, 1 )
 
 [sub_resource type="SphereMesh" id=5]
 material = SubResource( 4 )
 
-[node name="FireballExplosion" type="Spatial"]
+[node name="FireballExplosion" type="Node3D"]
 script = ExtResource( 2 )
 
 [node name="Audio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 1 )
-unit_db = 5.0
+volume_db = 5.0
 autoplay = true
 
-[node name="Particles" type="Particles" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
 one_shot = true
 explosiveness = 1.0

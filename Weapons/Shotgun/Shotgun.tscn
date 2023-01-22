@@ -3,10 +3,10 @@
 [ext_resource path="res://Weapons/Shotgun/shoot.wav" type="AudioStream" id=1]
 [ext_resource path="res://Weapons/Shotgun/Shotgun.gd" type="Script" id=2]
 [ext_resource path="res://Weapons/Shotgun/ShotgunCroc.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PowerUps/SpeedUpPowerup/SpeedUpPowerUpEffect.png" type="Texture" id=4]
-[ext_resource path="res://Theme/Vollkorn-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://PowerUps/SpeedUpPowerup/SpeedUpPowerUpEffect.png" type="Texture2D" id=4]
+[ext_resource path="res://Theme/Vollkorn-Regular.ttf" type="FontFile" id=5]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="FontFile" id=6]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
@@ -43,20 +43,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.05, 0.1, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -89.368, 0 ), Vector3( 0, -89.368, -30 ), Vector3( 0, -89.368, -30 ), Vector3( 0, -89.368, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ShotgunCroc:translation")
+tracks/1/path = NodePath("ShotgunCroc:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.05, 0.1, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.087124, -0.0840761, -0.064786 ), Vector3( 0.087, -0.084, 0.1 ), Vector3( 0.087, -0.084, 0.1 ), Vector3( 0.087124, -0.0840761, -0.064786 ) ]
 }
@@ -72,94 +72,94 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.15, 0.3, 0.45, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -89.368, 0 ), Vector3( 0, -89.3, -180 ), Vector3( 0, -89.315, -300 ), Vector3( 0, -89.368, -370 ), Vector3( 0, -89.368, -360 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ShotgunCroc:translation")
+tracks/1/path = NodePath("ShotgunCroc:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.3, 0.45, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.05, 0.15, 0.3, 0.45, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.087124, -0.0840761, -0.064786 ), Vector3( 0.087, 0.2, 0.1 ), Vector3( 0.087, -0.2, 0.2 ), Vector3( 0.087, -0.2, -0.2 ), Vector3( 0.0870194, -0.0131369, -0.0649666 ), Vector3( 0.087124, -0.0840761, -0.064786 ) ]
 }
 
-[node name="Shotgun" type="Spatial"]
+[node name="Shotgun" type="Node3D"]
 script = ExtResource( 2 )
 
-[node name="Barrel" type="Position3D" parent="."]
-transform = Transform( -7.99492, 0, -0.285196, 0, 8, 0, 0.285196, 0, -7.99492, -7.45058e-08, 0.0412493, -0.444786 )
+[node name="Barrel" type="Marker3D" parent="."]
+transform = Transform3D( -7.99492, 0, -0.285196, 0, 8, 0, 0.285196, 0, -7.99492, -7.45058e-08, 0.0412493, -0.444786 )
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
 [node name="ShotgunCroc" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.000551515, 0, -0.049997, 0, 0.05, 0, 0.049997, 0, 0.000551515, 0.087124, -0.0840761, -0.064786 )
+transform = Transform3D( 0.000551515, 0, -0.049997, 0, 0.05, 0, 0.049997, 0, 0.000551515, 0.087124, -0.0840761, -0.064786 )
 
 [node name="ShellsCount" type="Label3D" parent="ShotgunCroc"]
-transform = Transform( -0.215519, -15.5355, 12.5936, -0.537881, 12.5942, 15.5272, -19.9917, -0.171372, -0.55353, 4.73912, 3.48865, 1.86849 )
+transform = Transform3D( -0.215519, -15.5355, 12.5936, -0.537881, 12.5942, 15.5272, -19.9917, -0.171372, -0.55353, 4.73912, 3.48865, 1.86849 )
 text = "10"
 font = SubResource( 6 )
 
-[node name="SpeedUpAnim" type="Spatial" parent="ShotgunCroc"]
-transform = Transform( 0.220606, 0, 19.9988, 0, 20, 0, -19.9988, 0, 0.220606, 1.27642, 1.68152, 1.75666 )
+[node name="SpeedUpAnim" type="Node3D" parent="ShotgunCroc"]
+transform = Transform3D( 0.220606, 0, 19.9988, 0, 20, 0, -19.9988, 0, 0.220606, 1.27642, 1.68152, 1.75666 )
 
 [node name="PoweredUp" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, -0.0203924, 0.0597572, 0.149332 )
+transform = Transform3D( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, -0.0203924, 0.0597572, 0.149332 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 frame = 2
 playing = true
 
 [node name="PoweredUp2" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, 0.0464207, 0.0597572, 0.149332 )
+transform = Transform3D( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, 0.0464207, 0.0597572, 0.149332 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 frame = 1
 playing = true
 
 [node name="PoweredUp3" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, -0.0203924, 0.108295, 0.014201 )
+transform = Transform3D( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, -0.0203924, 0.108295, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 frame = 1
 playing = true
 
 [node name="PoweredUp4" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, 0.0464207, 0.108295, 0.014201 )
+transform = Transform3D( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, 0.0464207, 0.108295, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 playing = true
 
 [node name="PoweredUp5" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, -0.0321743, 0.014201 )
+transform = Transform3D( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, -0.0321743, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 frame = 1
 playing = true
 
 [node name="PoweredUp6" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, 0.0498955, 0.014201 )
+transform = Transform3D( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, 0.0498955, 0.014201 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 playing = true
 
 [node name="PoweredUp7" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, -0.0507272, 0.148302 )
+transform = Transform3D( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, -0.0507272, 0.148302 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 frame = 1
 playing = true
 
 [node name="PoweredUp8" type="AnimatedSprite3D" parent="ShotgunCroc/SpeedUpAnim"]
-transform = Transform( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, 0.00362358, 0.148302 )
+transform = Transform3D( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, 0.00362358, 0.148302 )
 frames = SubResource( 2 )
 animation = "PoweredUp"
 playing = true
@@ -169,7 +169,7 @@ anims/Cooldown = SubResource( 1 )
 anims/ShotgunCooldown = SubResource( 7 )
 
 [node name="Shoot" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405758, -0.336517 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405758, -0.336517 )
 stream = ExtResource( 1 )
 
 [node name="SpeedUpTimer" type="Timer" parent="."]

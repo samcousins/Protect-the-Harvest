@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Enemies/DeathSound.gd" type="Script" id=2]
 
-[node name="DeathSound" type="Spatial"]
+[node name="DeathSound" type="Node3D"]
 script = ExtResource( 2 )
 
 [node name="Death" type="AudioStreamPlayer3D" parent="."]
-unit_db = 69.041
+volume_db = 69.041
 max_db = 6.0
 
 [connection signal="finished" from="Death" to="." method="_on_Death_finished"]

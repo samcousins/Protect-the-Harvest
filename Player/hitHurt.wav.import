@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/hitHurt.wav-8097ddff8759cca2c0d3019024662667.sample"
+type="AudioStreamWAV"
+uid="uid://cmqbdscvkbuoe"
+path="res://.godot/imported/hitHurt.wav-8097ddff8759cca2c0d3019024662667.sample"
 
 [deps]
 
 source_file="res://Player/hitHurt.wav"
-dest_files=[ "res://.import/hitHurt.wav-8097ddff8759cca2c0d3019024662667.sample" ]
+dest_files=["res://.godot/imported/hitHurt.wav-8097ddff8759cca2c0d3019024662667.sample"]
 
 [params]
 

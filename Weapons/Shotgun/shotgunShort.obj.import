@@ -1,20 +1,21 @@
 [remap]
 
 importer="wavefront_obj"
+importer_version=1
 type="Mesh"
-path="res://.import/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh"
+uid="uid://6ktc4udbnf05"
+path="res://.godot/imported/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh"
 
 [deps]
 
-files=[ "res://.import/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh" ]
+files=["res://.godot/imported/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh"]
 
 source_file="res://Weapons/Shotgun/shotgunShort.obj"
-dest_files=[ "res://.import/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh", "res://.import/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh" ]
+dest_files=["res://.godot/imported/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh", "res://.godot/imported/shotgunShort.obj-32aba0ea7570b9181fe5462e968c583b.mesh"]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )
-offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/fireballExplodes.wav-0b05b7d476fa1e0f0c33f65f18ca386e.sample"
+type="AudioStreamWAV"
+uid="uid://cgynrwdxmih25"
+path="res://.godot/imported/fireballExplodes.wav-0b05b7d476fa1e0f0c33f65f18ca386e.sample"
 
 [deps]
 
 source_file="res://Enemies/Crow/Fireball/fireballExplodes.wav"
-dest_files=[ "res://.import/fireballExplodes.wav-0b05b7d476fa1e0f0c33f65f18ca386e.sample" ]
+dest_files=["res://.godot/imported/fireballExplodes.wav-0b05b7d476fa1e0f0c33f65f18ca386e.sample"]
 
 [params]
 

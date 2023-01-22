@@ -1,4 +1,4 @@
-extends CPUParticles
+extends CPUParticles3D
 
 func _ready():
 	emitting = true

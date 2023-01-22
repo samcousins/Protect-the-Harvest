@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/grunting.wav-edf65cac6c410b8bab897f279e6eef4a.sample"
+type="AudioStreamWAV"
+uid="uid://cilux8flkqiot"
+path="res://.godot/imported/grunting.wav-edf65cac6c410b8bab897f279e6eef4a.sample"
 
 [deps]
 
 source_file="res://Enemies/Badger/grunting.wav"
-dest_files=[ "res://.import/grunting.wav-edf65cac6c410b8bab897f279e6eef4a.sample" ]
+dest_files=["res://.godot/imported/grunting.wav-edf65cac6c410b8bab897f279e6eef4a.sample"]
 
 [params]
 

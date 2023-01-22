@@ -1,8 +1,8 @@
-# This script (and children) are time-independent, so we can still exit on game over etc
-extends Spatial
+# This script (and children) are time-independent, so we can still exit checked game over etc
+extends Node3D
 
-export var player_path := NodePath()
-onready var player = get_node(player_path)
+@export var player_path := NodePath()
+@onready var player = get_node(player_path)
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):

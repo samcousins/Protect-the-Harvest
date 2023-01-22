@@ -1,9 +1,9 @@
-extends Spatial
+extends Node3D
 
 var num_objectives := 0
 
-onready var game_over_ui = $GameOver
-onready var score_text = $GameOver/VBoxContainer/Score
+@onready var game_over_ui = $GameOver
+@onready var score_text = $GameOver/VBoxContainer/Score
 
 var is_game_over := false
 signal player_exited
@@ -13,7 +13,7 @@ var score := 0.0
 var play_music = true
 
 func _ready():
-	$EnvironmentParent/Player.connect("player_died", self, "_on_player_died")
+	$EnvironmentParent/Player.connect("player_died",Callable(self,"_on_player_died"))
 	
 	game_over_ui.visible = false
 	
@@ -21,7 +21,7 @@ func _ready():
 	num_objectives = objectives.size()
 	
 	for obj in objectives:
-		obj.connect("obj_destroyed", self, "_on_obj_destroyed")
+		obj.connect("obj_destroyed",Callable(self,"_on_obj_destroyed"))
 	
 	if play_music:
 		$Music.play()
@@ -47,7 +47,7 @@ func _on_player_died():
 
 func game_over():
 	emit_signal("game_over", score)
-	score_text.text = "Score: " + str(stepify(score, 0.01))
+	score_text.text = "Score: " + str(snapped(score, 0.01))
 	game_over_ui.visible = true
 	
 	$Music.stop()

@@ -1,4 +1,4 @@
-extends Area
+extends Area3D
 
 var direction
 var speed := 5
@@ -17,7 +17,7 @@ func _on_Lifespan_timeout():
 
 
 func spawn_explosion():
-	var explosion = explosion_sc.instance()
+	var explosion = explosion_sc.instantiate()
 	explosion.global_translation = global_translation
 	get_parent().add_child(explosion)
 

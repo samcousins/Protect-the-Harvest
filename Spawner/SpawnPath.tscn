@@ -4,12 +4,12 @@
 
 [sub_resource type="Curve3D" id=10]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 11, 1.06072, 10, 0, 0, 0, 0, 0, 0, 11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 10 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+"points": PackedVector3Array( 0, 0, 0, 0, 0, 0, 11, 1.06072, 10, 0, 0, 0, 0, 0, 0, 11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, -11, 0, 0, 0, 0, 0, 0, -11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 11, 0, 0, 0, 0, 0, 0, 11, 1.06072, 10 ),
+"tilts": PackedFloat32Array( 0, 0, 0, 0, 0, 0 )
 }
 
-[node name="SpawnPath" type="Path"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
+[node name="SpawnPath" type="Path3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0607239, 0 )
 curve = SubResource( 10 )
 script = ExtResource( 1 )
 

@@ -4,11 +4,11 @@ signal start_game
 signal music_toggled(state)
 signal fps_toggled(state)
 
-onready var main_menu = $Menu/MenuVBox
-onready var settings = $Menu/SettingsVBox
-onready var controls = $Menu/Controls
-onready var about = $Menu/About
-onready var volume = $Menu/SettingsVBox/VolumeHBox/VolumeSlider
+@onready var main_menu = $Menu/MenuVBox
+@onready var settings = $Menu/SettingsVBox
+@onready var controls = $Menu/Controls
+@onready var about = $Menu/About
+@onready var volume = $Menu/SettingsVBox/VolumeHBox/VolumeSlider
 
 
 func _ready():
@@ -16,7 +16,7 @@ func _ready():
 	settings.visible = false
 	controls.visible = false
 	about.visible = false
-	$Menu/SettingsVBox/Fullscreen.pressed = OS.window_fullscreen
+	$Menu/SettingsVBox/Fullscreen.button_pressed = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 	volume.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	
 	fade_up()
@@ -46,7 +46,7 @@ func _on_Quit_pressed():
 
 
 func update_highscore(score):
-	$Menu/MenuVBox/Highscore.text = "HIGHSCORE: " + str(stepify(score, 0.01))
+	$Menu/MenuVBox/Highscore.text = "HIGHSCORE: " + str(snapped(score, 0.01))
 
 
 func _on_Settings_pressed():
@@ -64,7 +64,7 @@ func _on_SettingsBack_pressed():
 
 
 func _on_Fullscreen_toggled(button_pressed):
-	OS.window_fullscreen = button_pressed
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (button_pressed) else Window.MODE_WINDOWED
 
 
 func _on_Controls_pressed():
@@ -78,11 +78,11 @@ func _on_ControlsBack_pressed():
 
 
 func set_default_music(state):
-	$Menu/SettingsVBox/Music.pressed = state
+	$Menu/SettingsVBox/Music.button_pressed = state
 
 
 func set_unlock_fps(state):
-	$"Menu/SettingsVBox/Unlock FPS".pressed = state
+	$"Menu/SettingsVBox/Unlock FPS".button_pressed = state
 
 
 func _on_About_pressed():

@@ -1,9 +1,9 @@
-extends KinematicBody
+extends CharacterBody3D
 
 signal player_died
 
-onready var camera = $Pivot/Camera
-onready var hp_ui = $HUD/Life
+@onready var camera = $Pivot/Camera3D
+@onready var hp_ui = $HUD/Life
 
 var gravity := -30
 var max_speed := 8
@@ -15,10 +15,10 @@ var play_music := true
 
 var hp := 3
 
-onready var equipped_weapon = $Pivot/Gun
+@onready var equipped_weapon = $Pivot/Gun
 
-onready var tween := $HUD/FadeIn/Tween
-onready var fade_in_screen := $HUD/FadeIn
+@onready var tween := $HUD/FadeIn/Tween
+@onready var fade_in_screen := $HUD/FadeIn
 
 func _ready():
 	tween.interpolate_property(
@@ -69,7 +69,11 @@ func _physics_process(delta):
 
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
-	velocity = move_and_slide(velocity, Vector3.UP, true)
+	set_velocity(velocity)
+	set_up_direction(Vector3.UP)
+	set_floor_stop_on_slope_enabled(true)
+	move_and_slide()
+	velocity = velocity
 
 
 func power_up(power_name, power_time):

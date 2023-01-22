@@ -1,4 +1,4 @@
-extends StaticBody
+extends StaticBody3D
 
 var max_hp := 5
 var hp : int
@@ -23,7 +23,7 @@ func attacked(dmg):
 func die():
 	emit_signal("obj_destroyed")
 	
-	var dest = destruction_sound.instance()
+	var dest = destruction_sound.instantiate()
 	dest.global_translation = global_translation
 	owner.add_child(dest)
 	

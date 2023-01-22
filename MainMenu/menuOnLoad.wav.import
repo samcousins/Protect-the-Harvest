@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/menuOnLoad.wav-c86eec16f20d5d48a4b89abf4ce27855.sample"
+type="AudioStreamWAV"
+uid="uid://b20bkee177ruv"
+path="res://.godot/imported/menuOnLoad.wav-c86eec16f20d5d48a4b89abf4ce27855.sample"
 
 [deps]
 
 source_file="res://MainMenu/menuOnLoad.wav"
-dest_files=[ "res://.import/menuOnLoad.wav-c86eec16f20d5d48a4b89abf4ce27855.sample" ]
+dest_files=["res://.godot/imported/menuOnLoad.wav-c86eec16f20d5d48a4b89abf4ce27855.sample"]
 
 [params]
 

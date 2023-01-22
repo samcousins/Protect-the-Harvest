@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-export var sound : AudioStreamSample
+@export var sound : AudioStreamWAV
 
 func _ready():
 	$Death.stream = sound

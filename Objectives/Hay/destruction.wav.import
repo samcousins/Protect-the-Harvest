@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/destruction.wav-fb34cd5e6496d477053560f22d702f15.sample"
+type="AudioStreamWAV"
+uid="uid://c0bo70ms41bh5"
+path="res://.godot/imported/destruction.wav-fb34cd5e6496d477053560f22d702f15.sample"
 
 [deps]
 
 source_file="res://Objectives/Hay/destruction.wav"
-dest_files=[ "res://.import/destruction.wav-fb34cd5e6496d477053560f22d702f15.sample" ]
+dest_files=["res://.godot/imported/destruction.wav-fb34cd5e6496d477053560f22d702f15.sample"]
 
 [params]
 

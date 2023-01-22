@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var bullet_sc = preload("res://Weapons/Bullet/Bullet.tscn")
 
@@ -8,17 +8,17 @@ var shell_count := 0
 
 var sped_up := false
 
-onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var anim : AnimationPlayer = $AnimationPlayer
 
-onready var shoot_sound := $Shoot
+@onready var shoot_sound := $Shoot
 
-onready var speed_up_timer : Timer = $SpeedUpTimer
+@onready var speed_up_timer : Timer = $SpeedUpTimer
 
-onready var speed_up_anim = $Node2/root/body/SpeedUpAnim
+@onready var speed_up_anim = $Node2/root/body/SpeedUpAnim
 
-onready var shells_count_ui = $Node2/root/body/ShellsCount
+@onready var shells_count_ui = $Node2/root/body/ShellsCount
 
-onready var barrel := $Node2/root/barrel/bullet_spawn
+@onready var barrel := $Node2/root/barrel/bullet_spawn
 
 
 func _ready():
@@ -44,11 +44,11 @@ func use_bullet():
 
 func spawn_projectile(spread):
 	randomize()
-	var bullet = bullet_sc.instance()
+	var bullet = bullet_sc.instantiate()
 	bullet.transform = barrel.global_transform
 	bullet.scale = Vector3(10, 10, 10)
-	bullet.rotation.x += rand_range(-(spread*0.25), spread*0.25)
-	bullet.rotation.y += rand_range(-spread, spread)
+	bullet.rotation.x += randf_range(-(spread*0.25), spread*0.25)
+	bullet.rotation.y += randf_range(-spread, spread)
 	bullet.velocity = bullet.transform.basis.z * bullet.muzzle_velocity
 	get_tree().root.add_child(bullet)
 

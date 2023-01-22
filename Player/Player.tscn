@@ -2,24 +2,24 @@
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/GunRemodelled/Gun.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player/icon.png" type="Texture" id=3]
+[ext_resource path="res://Player/icon.png" type="Texture2D" id=3]
 [ext_resource path="res://Player/start.wav" type="AudioStream" id=4]
 [ext_resource path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.wav" type="AudioStream" id=5]
-[ext_resource path="res://Player/Reticule.png" type="Texture" id=6]
+[ext_resource path="res://Player/Reticule.png" type="Texture2D" id=6]
 [ext_resource path="res://Objectives/Hay/hitHurt.wav" type="AudioStream" id=7]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape3D" id=3]
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape3D" id=5]
 extents = Vector3( 0.27009, 0.0324253, 0.309672 )
 
 [sub_resource type="CapsuleMesh" id=4]
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="StandardMaterial3D" id=6]
 albedo_texture = ExtResource( 3 )
 
-[node name="Player" type="KinematicBody"]
-pause_mode = 1
+[node name="Player" type="CharacterBody3D"]
+process_mode = 1
 collision_layer = 5
 collision_mask = 5
 script = ExtResource( 1 )
@@ -29,8 +29,8 @@ script = ExtResource( 1 )
 [node name="Life" type="Label" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -40.0
-margin_bottom = 29.0
+offset_left = -40.0
+offset_bottom = 29.0
 text = "3"
 
 [node name="Reticule" type="TextureRect" parent="HUD"]
@@ -38,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 8.0
-margin_bottom = 8.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
@@ -54,30 +54,30 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Tween" type="Tween" parent="HUD/FadeIn"]
 
-[node name="Body" type="CollisionShape" parent="."]
-transform = Transform( 0.3, 0, 0, 0, -1.31134e-08, -0.5, 0, 0.3, -2.18557e-08, 0, 0, 0 )
+[node name="Body" type="CollisionShape3D" parent="."]
+transform = Transform3D( 0.3, 0, 0, 0, -1.31134e-08, -0.5, 0, 0.3, -2.18557e-08, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="Feet" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.657224, 0 )
+[node name="Feet" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.657224, 0 )
 shape = SubResource( 5 )
 
-[node name="Mesh" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, -1.31134e-08, -0.5, 0, 0.3, -2.18557e-08, 0, 0, 0 )
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D( 0.3, 0, 0, 0, -1.31134e-08, -0.5, 0, 0.3, -2.18557e-08, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 6 )
 
-[node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0 )
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0 )
 
 [node name="Gun" parent="Pivot" instance=ExtResource( 2 )]
-transform = Transform( -0.199976, -0.000714568, -0.00302263, -0.000838043, 0.19983, 0.00820357, 0.00299075, 0.00821525, -0.199809, 0.239936, -0.265115, -0.385143 )
+transform = Transform3D( -0.199976, -0.000714568, -0.00302263, -0.000838043, 0.19983, 0.00820357, 0.00299075, 0.00821525, -0.199809, 0.239936, -0.265115, -0.385143 )
 
-[node name="Camera" type="Camera" parent="Pivot"]
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true
 
-[node name="Listener" type="Listener" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421535, 0 )
 current = true
 
 [node name="Start" type="AudioStreamPlayer" parent="."]
@@ -88,6 +88,6 @@ volume_db = -20.0
 stream = ExtResource( 5 )
 
 [node name="Oof" type="AudioStreamPlayer3D" parent="."]
-pause_mode = 2
+process_mode = 2
 stream = ExtResource( 7 )
-unit_db = 30.0
+volume_db = 30.0

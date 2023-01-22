@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/gameOver.wav-03e42f6fe795e6d139493a87f43b146f.sample"
+type="AudioStreamWAV"
+uid="uid://0n3jldeayetj"
+path="res://.godot/imported/gameOver.wav-03e42f6fe795e6d139493a87f43b146f.sample"
 
 [deps]
 
 source_file="res://Game/gameOver.wav"
-dest_files=[ "res://.import/gameOver.wav-03e42f6fe795e6d139493a87f43b146f.sample" ]
+dest_files=["res://.godot/imported/gameOver.wav-03e42f6fe795e6d139493a87f43b146f.sample"]
 
 [params]
 
