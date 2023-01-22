@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cykbjm6adhwjv" path="res://Enemies/Badger/Badger.glb" id="2"]
 [ext_resource type="AudioStream" uid="uid://cilux8flkqiot" path="res://Enemies/Badger/grunting.wav" id="3"]
 
-[sub_resource type="BoxShape3D" id="3"]
-size = Vector3(1, 1.1412, 2.59696)
+[sub_resource type="BoxShape3D" id="BoxShape3D_22nly"]
+size = Vector3(0.967942, 1.17809, 2.53885)
 
 [sub_resource type="Animation" id="5"]
 resource_name = "Attacking"
@@ -52,14 +52,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape3D:position")
+tracks/3/path = NodePath("Collider:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.4),
+"times": PackedFloat32Array(0, 0.9, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00733358, 0.171378, -0.201646), Vector3(0.007, 0.171, 1), Vector3(0.007, 0.171, -1)]
+"values": [Vector3(0.0450301, 0.341738, -0.0119693), Vector3(0.0450301, 0.341738, 2.58879), Vector3(0.0450301, 0.341738, -1.18836)]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -92,14 +92,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D:position")
+tracks/2/path = NodePath("Collider:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.2, 0), Vector3(0, 0.2, 0)]
+"values": [Vector3(0.0450301, 0.341738, -0.178316), Vector3(0.0450301, 0.341738, -0.178316)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_molfj"]
@@ -110,19 +110,20 @@ _data = {
 
 [node name="Badger" type="CharacterBody3D"]
 process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.261635, 0)
 script = ExtResource("1")
 
 [node name="Badger" parent="." instance=ExtResource("2")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.5, 0, -0.401)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.529374, 0, -0.401)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 2.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00733358, 0.171378, -0.201646)
-shape = SubResource("3")
-
 [node name="Cooldown" type="Timer" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0450301, 0.22252, -0.178316)
+shape = SubResource("BoxShape3D_22nly")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

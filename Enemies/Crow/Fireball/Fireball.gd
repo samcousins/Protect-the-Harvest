@@ -1,12 +1,15 @@
 extends Area3D
 
+var explosion_sc = preload("res://Enemies/Crow/Fireball/FireballExplosion.tscn")
+
 var direction
+
 var speed := 5
 
 var is_fireball := true
+
 var exploded := false
 
-var explosion_sc = preload("res://Enemies/Crow/Fireball/FireballExplosion.tscn")
 
 func _process(delta):
 	global_position += direction * speed * delta
@@ -35,7 +38,6 @@ func _on_Fireball_body_shape_entered(_rid, body, _bsi, _lsi):
 		body.take_damage(1)
 		spawn_explosion()
 		queue_free()
-
 
 
 func _on_Fireball_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
