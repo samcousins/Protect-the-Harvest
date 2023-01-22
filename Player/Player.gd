@@ -18,6 +18,9 @@ var hp := 3
 @onready var fade_in_screen := $HUD/FadeIn
 
 func _ready():
+	set_up_direction(Vector3.UP)
+	set_floor_stop_on_slope_enabled(true)
+	
 	create_tween().tween_property(
 		fade_in_screen,
 		"modulate.a",
@@ -64,10 +67,7 @@ func _physics_process(delta):
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	set_velocity(velocity)
-	set_up_direction(Vector3.UP)
-	set_floor_stop_on_slope_enabled(true)
 	move_and_slide()
-	#velocity = velocity
 
 
 func power_up(power_name, power_time):

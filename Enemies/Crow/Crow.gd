@@ -24,6 +24,9 @@ func _ready():
 
 
 func _process(delta):
+	if not target:
+		return
+	
 	var target_pos = Vector3(target.global_position.x, global_position.y, target.global_position.z)
 	
 	look_at(target_pos, Vector3.UP)

@@ -32,9 +32,9 @@ func add_main_menu():
 	main_menu = null
 	main_menu = main_menu_sc.instantiate()
 	
-	main_menu.connect("start_game",Callable(self,"_on_start_game"))
-	main_menu.connect("music_toggled",Callable(self,"_on_music_toggled"))
-	main_menu.connect("fps_toggled",Callable(self,"_on_fps_toggled"))
+	main_menu.start_game.connect(_on_start_game)
+	main_menu.music_toggled.connect(_on_music_toggled)
+	main_menu.fps_toggled.connect(_on_fps_toggled)
 	
 	main_menu.update_highscore(highscore)
 	main_menu.set_default_music(play_music)
@@ -59,15 +59,16 @@ func add_game():
 	
 	game = game_sc.instantiate()
 	
-	#game.play_music = play_music
+	game.play_music = play_music
 	
-	game.connect("player_exited",Callable(self,"_on_player_exited"))
-	game.connect("game_over",Callable(self,"_on_game_over"))
+	game.player_exited.connect(_on_player_exited)
+	game.game_over.connect(_on_game_over)
 	
 	add_child(game)
 
 
 func _on_player_exited():
+	print("Player exited")
 	return_to_menu()
 
 

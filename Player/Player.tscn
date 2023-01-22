@@ -1,15 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://bfnnh001tuwr4"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Weapons/GunRemodelled/Gun.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bhg34e0yt4a83" path="res://Weapons/GunRemodelled/Gun.tscn" id="2"]
 [ext_resource type="AudioStream" uid="uid://e0a317345edt" path="res://Player/start.wav" id="4"]
 [ext_resource type="AudioStream" uid="uid://7g8222l7de24" path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.wav" id="5"]
 [ext_resource type="Texture2D" uid="uid://drtu2oicmrdth" path="res://Player/Reticule.png" id="6"]
 [ext_resource type="AudioStream" uid="uid://cxia3xfx7agp7" path="res://Objectives/Hay/hitHurt.wav" id="7"]
 
-[sub_resource type="CapsuleShape3D" id="3"]
-radius = 0.50151
-height = 2.9114
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_72cl7"]
+height = 1.3435
+radius = 0.300687
 
 [sub_resource type="BoxShape3D" id="5"]
 size = Vector3(0.54018, 0.0648506, 0.619344)
@@ -56,19 +56,19 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Body" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, -0.299994, 0.00328996, 0, -0.00197397, -0.499989, 0, 0.197637, 0.171183)
-shape = SubResource("3")
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0.493051, 0.171183)
+shape = SubResource("CylinderShape3D_72cl7")
 
 [node name="Feet" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.235212, 0.157165)
 shape = SubResource("5")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.435276, 0, 0, 0, 0.313407, 0, 0.212366, 0.160992)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.505865, 0.418385)
 mesh = SubResource("4")
 
 [node name="Pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531203, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03367, 0)
 
 [node name="Gun" parent="Pivot" instance=ExtResource("2")]
 transform = Transform3D(-0.199976, -0.000714568, -0.00302263, -0.000838043, 0.19983, 0.00820357, 0.00299075, 0.00821525, -0.199809, 0.239936, -0.265115, -0.385143)

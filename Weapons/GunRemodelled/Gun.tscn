@@ -1,110 +1,137 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://bhg34e0yt4a83"]
 
-[ext_resource path="res://Weapons/GunRemodelled/GunRemodelled.gltf" type="PackedScene" id=1]
-[ext_resource path="res://Weapons/Shotgun/Shotgun.gd" type="Script" id=2]
-[ext_resource path="res://Weapons/Shotgun/shoot.wav" type="AudioStream" id=3]
-[ext_resource path="res://Theme/Vollkorn-Regular.ttf" type="FontFile" id=4]
-[ext_resource path="res://PowerUps/SpeedUpPowerup/SpeedUpPowerUpEffect.png" type="Texture2D" id=5]
+[ext_resource type="PackedScene" uid="uid://biv18b44dd3me" path="res://Weapons/GunRemodelled/GunRemodelled.gltf" id="1"]
+[ext_resource type="Script" path="res://Weapons/Shotgun/Shotgun.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://dpjw1l7brcu8k" path="res://Weapons/Shotgun/shoot.wav" id="3"]
+[ext_resource type="FontFile" uid="uid://ddo04unbmjb2i" path="res://Theme/Vollkorn-Regular.ttf" id="4"]
+[ext_resource type="Texture2D" uid="uid://3e4dv87621x" path="res://PowerUps/SpeedUpPowerup/SpeedUpPowerUpEffect.png" id="5"]
 
-[sub_resource type="FontFile" id=1]
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = [ExtResource("4")]
+face_index = null
+embolden = null
+transform = null
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 19
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 8, 16 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 8, 16)
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 19
-atlas = ExtResource( 5 )
-region = Rect2( 8, 0, 8, 16 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("5")
+region = Rect2(8, 0, 8, 16)
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 19
-atlas = ExtResource( 5 )
-region = Rect2( 16, 0, 8, 16 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("5")
+region = Rect2(16, 0, 8, 16)
 
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+[sub_resource type="SpriteFrames" id="6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}],
 "loop": true,
-"name": "PoweredUp",
+"name": &"PoweredUp",
 "speed": 12.0
-} ]
+}]
 
-[node name="Gun" instance=ExtResource( 1 )]
-transform = Transform3D( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0 )
-script = ExtResource( 2 )
+[node name="Gun" instance=ExtResource("1")]
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0)
+script = ExtResource("2")
 
 [node name="bullet_spawn" type="Node3D" parent="Node2/root/barrel" index="4"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42109e-14, 0.397056, 2.25806 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42109e-14, 0.397056, 2.25806)
 
 [node name="ShellsCount" type="Label3D" parent="Node2/root/body" index="0"]
-transform = Transform3D( -1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0.431688, 0.446472, -0.0935785 )
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0.431688, 0.446472, -0.0935785)
+texture_filter = 0
 text = "10"
-font = SubResource( 1 )
+font = SubResource("1")
 
 [node name="SpeedUpAnim" type="Node3D" parent="Node2/root/body" index="1"]
-transform = Transform3D( -4, -5.00043e-08, -6.0191e-07, 0, 3.98627, -0.331163, 6.03983e-07, -0.331163, -3.98627, 1.22983e-09, 0.246861, 0.00814476 )
+transform = Transform3D(-4, -5.00043e-08, -6.0191e-07, 0, 3.98627, -0.331163, 6.03983e-07, -0.331163, -3.98627, 1.22983e-09, 0.246861, 0.00814476)
 
 [node name="Back" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="0"]
-transform = Transform3D( 1, 1.42109e-14, -1.42109e-14, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, -0.0203924, 0.0903087, 0.174178 )
-frames = SubResource( 6 )
-animation = "PoweredUp"
-frame = 1
+transform = Transform3D(1, 1.42109e-14, -1.42109e-14, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, -0.0203924, 0.0903087, 0.174178)
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="PoweredUp2" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="1"]
-transform = Transform3D( 1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, 0.0464207, 0.0597572, 0.149332 )
+transform = Transform3D(1, 0, 0, 0, 0.630947, 0.775826, 0, -0.775826, 0.630947, 0.0464207, 0.0597572, 0.149332)
 visible = false
-frames = SubResource( 6 )
-animation = "PoweredUp"
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="Top" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="2"]
-transform = Transform3D( 1, 1.42109e-13, 9.71445e-16, 0, -0.110055, 0.995812, 0, -1.29678, -0.0845122, -0.0203924, 0.10724, 0.00177517 )
-frames = SubResource( 6 )
-animation = "PoweredUp"
+transform = Transform3D(1, 1.42109e-13, 9.71445e-16, 0, -0.110055, 0.995812, 0, -1.29678, -0.0845122, -0.0203924, 0.10724, 0.00177517)
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="PoweredUp4" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="3"]
-transform = Transform3D( 1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, 0.0464207, 0.108295, 0.014201 )
+transform = Transform3D(1, 0, 0, 0, -0.0749091, 0.99719, 0, -0.882658, -0.0663055, 0.0464207, 0.108295, 0.014201)
 visible = false
-frames = SubResource( 6 )
-animation = "PoweredUp"
-frame = 2
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="PoweredUp5" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="4"]
-transform = Transform3D( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, -0.0321743, 0.014201 )
-frames = SubResource( 6 )
-animation = "PoweredUp"
+transform = Transform3D(0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, -0.0321743, 0.014201)
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="PoweredUp6" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="5"]
-transform = Transform3D( 0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, 0.0498955, 0.014201 )
-frames = SubResource( 6 )
-animation = "PoweredUp"
-frame = 2
+transform = Transform3D(0, 0.0749091, -0.99719, 1.22835, 0, 1.83038e-08, 0, -0.882658, -0.0663055, -0.0659524, 0.0498955, 0.014201)
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="PoweredUp7" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="6"]
-transform = Transform3D( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, -0.0507272, 0.148302 )
-frames = SubResource( 6 )
-animation = "PoweredUp"
+transform = Transform3D(8.88178e-15, -0.0396444, -0.997407, 0.813475, 3.72529e-08, 1.16415e-08, 1.49012e-08, -0.884944, 0.0629591, -0.0659524, -0.0135098, 0.14521)
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="PoweredUp8" type="AnimatedSprite3D" parent="Node2/root/body/SpeedUpAnim" index="7"]
-transform = Transform3D( 0, -0.0396444, -0.997407, 0.813475, 0, 1.21217e-08, 0, -0.884944, 0.0629591, -0.0659524, 0.00362358, 0.148302 )
-frames = SubResource( 6 )
-animation = "PoweredUp"
-frame = 2
+transform = Transform3D(5.32907e-15, -0.0396444, -0.997407, 0.813475, 2.23517e-08, 1.16415e-08, 1.49012e-08, -0.884944, 0.0629591, -0.0659524, 0.0543894, 0.144085)
+texture_filter = 0
+frames = SubResource("6")
+animation = &"PoweredUp"
 playing = true
 
 [node name="Shoot" type="AudioStreamPlayer3D" parent="." index="2"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405758, -0.336517 )
-stream = ExtResource( 3 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0405758, -0.336517)
+stream = ExtResource("3")
 
 [node name="SpeedUpTimer" type="Timer" parent="." index="3"]
 
