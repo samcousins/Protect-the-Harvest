@@ -1,41 +1,42 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://ncve3xgcd803"]
 
-[ext_resource path="res://Enemies/Crow/Fireball/fireballExplodes.wav" type="AudioStream" id=1]
-[ext_resource path="res://Enemies/Crow/Fireball/FireballExplosion.gd" type="Script" id=2]
+[ext_resource type="AudioStream" uid="uid://cgynrwdxmih25" path="res://Enemies/Crow/Fireball/fireballExplodes.wav" id="1"]
+[ext_resource type="Script" path="res://Enemies/Crow/Fireball/FireballExplosion.gd" id="2"]
 
-[sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="Curve_ubrlu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
+[sub_resource type="CurveTexture" id="CurveTexture_h0r3j"]
+curve = SubResource("Curve_ubrlu")
 
-[sub_resource type="ParticleProcessMaterial" id=3]
-direction = Vector3( 0, 10, 0 )
-gravity = Vector3( 0, -50, 0 )
-initial_velocity = 10.0
-scale = 0.05
-scale_curve = SubResource( 2 )
-color = Color( 0, 0, 0, 1 )
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nx0aj"]
+direction = Vector3(0, 10, 0)
+gravity = Vector3(0, -50, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_h0r3j")
+color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id=4]
-albedo_color = Color( 0.305882, 0.172549, 0.172549, 1 )
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp8dx"]
+albedo_color = Color(0.305882, 0.172549, 0.172549, 1)
 
-[sub_resource type="SphereMesh" id=5]
-material = SubResource( 4 )
+[sub_resource type="SphereMesh" id="SphereMesh_ddxq4"]
+material = SubResource("StandardMaterial3D_tp8dx")
 
 [node name="FireballExplosion" type="Node3D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Audio" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource("1")
 volume_db = 5.0
 autoplay = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
-one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 5 )
+process_material = SubResource("ParticleProcessMaterial_nx0aj")
+draw_pass_1 = SubResource("SphereMesh_ddxq4")
 
 [connection signal="finished" from="Audio" to="." method="_on_Audio_finished"]

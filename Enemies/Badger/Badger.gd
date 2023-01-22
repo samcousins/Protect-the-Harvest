@@ -36,6 +36,7 @@ func _ready():
 
 
 func take_damage(dmg):
+	print(name + " took damage")
 	hp -= dmg
 	if hp == 0:
 		die()

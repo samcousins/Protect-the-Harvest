@@ -13,3 +13,8 @@ res://Game/Game.gd
 res://Player/Player.gd
 res://App/App.gd
 res://Enemies/Crow/Crow.gd
+res://Enemies/Crow/Fireball/Fireball.tscn
+res://Enemies/Crow/Fireball/FireballExplosion.tscn
+res://Enemies/Badger/Badger.gd
+res://PowerUps/SpeedUpPowerup/SpeedUpPowerUp.tscn
+res://Enemies/Blood.tscn

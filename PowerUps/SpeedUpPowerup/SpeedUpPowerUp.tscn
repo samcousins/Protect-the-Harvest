@@ -1,41 +1,48 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://3iqe3mgvsufv"]
 
-[ext_resource path="res://PowerUps/PowerUp.gd" type="Script" id=1]
-[ext_resource path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.png" type="Texture2D" id=2]
+[ext_resource type="Script" path="res://PowerUps/PowerUp.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://chm53pr2wktbe" path="res://PowerUps/SpeedUpPowerup/speedUpPowerUp.png" id="2"]
 
-[sub_resource type="BoxShape3D" id=1]
+[sub_resource type="BoxShape3D" id="BoxShape3D_swit7"]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="Animation_5il3s"]
 resource_name = "Hover"
-loop = true
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Img:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1l2r"]
+_data = {
+"Hover": SubResource("Animation_5il3s")
 }
 
 [node name="Speed" type="Area3D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 power_up_time = 5.0
 power_up_name = "speed_up"
-power_up_icon = ExtResource( 2 )
+power_up_icon = ExtResource("2")
 
 [node name="Img" type="Sprite3D" parent="."]
-transform = Transform3D( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.15569, 0 )
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.15569, 0)
 billboard = 1
+texture_filter = 0
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("BoxShape3D_swit7")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
-anims/Hover = SubResource( 2 )
+libraries = {
+"": SubResource("AnimationLibrary_p1l2r")
+}
 
 [node name="Death" type="Timer" parent="."]
 wait_time = 4.0
