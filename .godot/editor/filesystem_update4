@@ -1,9 +1,9 @@
-res://Enemies/Crow/Fireball/Fireball.tscn
+res://Game/Game.tscn
 res://Environment/material_0.material
 res://Theme/EnvironmentSettings.tres
 res://Enemies/Crow/BlockBench/material_0.material
-res://Game/Game.tscn
 res://MainMenu/MainMenu.tscn
 res://Weapons/Bullet/Bullet.tscn
 res://Player/Player.tscn
 res://Enemies/Badger/Badger.tscn
+res://Enemies/Crow/Fireball/Fireball.tscn
