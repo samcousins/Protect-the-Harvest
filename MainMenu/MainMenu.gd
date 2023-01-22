@@ -10,22 +10,28 @@ signal fps_toggled(state)
 @onready var about = $Menu/About
 @onready var volume = $Menu/SettingsVBox/VolumeHBox/VolumeSlider
 @onready var black_screen = $Menu/BlackScreen
+@onready var fullscreen = $Menu/SettingsVBox/Fullscreen
+@onready var highscore = $Menu/MenuVBox/Highscore
+@onready var music = $Menu/SettingsVBox/Music
+@onready var fps = $"Menu/SettingsVBox/Unlock FPS"
 
 func _ready():
+	reset_menus()
+	fade_up()
+
+
+func reset_menus():
 	main_menu.visible = true
 	settings.visible = false
 	controls.visible = false
 	about.visible = false
-	
-	$Menu/SettingsVBox/Fullscreen.button_pressed = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
+	fullscreen.button_pressed = ((get_window().mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == DisplayServer.WINDOW_MODE_FULLSCREEN))
 	volume.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	
-	fade_up()
 
 
 func fade_up():
-	#black_screen.visible = true
-	create_tween().tween_property(black_screen, "modulate.a", 0, 1.0)
+	black_screen.visible = true
+	create_tween().tween_property(black_screen, "modulate:a", 0, 1.0)
 
 
 func _on_Start_pressed():
@@ -37,7 +43,7 @@ func _on_Quit_pressed():
 
 
 func update_highscore(score):
-	$Menu/MenuVBox/Highscore.text = "HIGHSCORE: " + str(snapped(score, 0.01))
+	highscore.text = "HIGHSCORE: " + str(snapped(score, 0.01))
 
 
 func _on_Settings_pressed():
@@ -69,11 +75,11 @@ func _on_ControlsBack_pressed():
 
 
 func set_default_music(state):
-	$Menu/SettingsVBox/Music.button_pressed = state
+	music.button_pressed = state
 
 
 func set_unlock_fps(state):
-	$"Menu/SettingsVBox/Unlock FPS".button_pressed = state
+	fps.button_pressed = state
 
 
 func _on_About_pressed():
@@ -88,7 +94,7 @@ func _on_AboutBack_pressed():
 func _on_Unlock_FPS_toggled(button_pressed):
 	emit_signal("fps_toggled", button_pressed)
 	if button_pressed:
-		Engine.max_fps = 100
+		Engine.max_fps = 120
 	else:
 		Engine.max_fps = 40
 

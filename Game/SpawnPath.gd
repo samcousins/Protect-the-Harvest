@@ -1,19 +1,16 @@
 extends Path3D
 
-var enemy_spawner = preload("res://Spawner/Spawner.tscn")
-
 @export var to_spawn : PackedScene
-
 @export var game_path := NodePath()
-@onready var game = get_node(game_path)
-
 @export var player_path := NodePath()
-
 @export var time_till_next_spawner := 30.0
 @export var time_to_add := 10.0
-
 @export var spawn_time_min := 2.0
 @export var spawn_time_max := 5.0
+
+@onready var game = get_node(game_path)
+
+var enemy_spawner = preload("res://Spawner/Spawner.tscn")
 
 var reverse_dir := true
 

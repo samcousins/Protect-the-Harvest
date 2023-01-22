@@ -36,10 +36,11 @@ func add_main_menu():
 	main_menu.music_toggled.connect(_on_music_toggled)
 	main_menu.fps_toggled.connect(_on_fps_toggled)
 	
+	add_child(main_menu)
+	
 	main_menu.update_highscore(highscore)
 	main_menu.set_default_music(play_music)
 	main_menu.set_unlock_fps(unlock_fps)
-	add_child(main_menu)
 
 
 func _on_start_game():

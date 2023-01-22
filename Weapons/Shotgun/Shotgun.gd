@@ -1,24 +1,21 @@
 extends Node3D
 
+@onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var shoot_sound := $Shoot
+@onready var speed_up_timer : Timer = $SpeedUpTimer
+@onready var speed_up_anim = $Node2/root/body/SpeedUpAnim
+@onready var shells_count_ui = $Node2/root/body/ShellsCount
+@onready var barrel := $Node2/root/barrel/bullet_spawn
+
 var bullet_sc = preload("res://Weapons/Bullet/Bullet.tscn")
 
 var bullets_in_shell := 20
+
 var shell_spread := .3
+
 var shell_count := 0
 
 var sped_up := false
-
-@onready var anim : AnimationPlayer = $AnimationPlayer
-
-@onready var shoot_sound := $Shoot
-
-@onready var speed_up_timer : Timer = $SpeedUpTimer
-
-@onready var speed_up_anim = $Node2/root/body/SpeedUpAnim
-
-@onready var shells_count_ui = $Node2/root/body/ShellsCount
-
-@onready var barrel := $Node2/root/barrel/bullet_spawn
 
 
 func _ready():

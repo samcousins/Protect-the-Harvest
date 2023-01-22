@@ -4,26 +4,28 @@ signal player_died
 
 @onready var camera = $Pivot/Camera3D
 @onready var hp_ui = $HUD/Life
+@onready var equipped_weapon = $Pivot/Gun
+@onready var fade_in_screen := $HUD/FadeIn
 
 var gravity := -30
+
 var max_speed := 8
+
 var mouse_sensitivity := 0.004  # radians/pixel
 
 var play_music := true
 
 var hp := 3
 
-@onready var equipped_weapon = $Pivot/Gun
-
-@onready var fade_in_screen := $HUD/FadeIn
 
 func _ready():
 	set_up_direction(Vector3.UP)
 	set_floor_stop_on_slope_enabled(true)
 	
+	fade_in_screen.visible = true
 	create_tween().tween_property(
 		fade_in_screen,
-		"modulate.a",
+		"modulate:a",
 		0, 
 		1.0
 	)

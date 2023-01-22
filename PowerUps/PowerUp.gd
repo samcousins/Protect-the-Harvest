@@ -1,7 +1,5 @@
 extends Area3D
 
-
-# set by whatever spawns this (enemy death). The power up implementation happens in the player's weapon
 @export var power_up_time : float
 @export var power_up_name : String
 @export var power_up_icon : Texture2D

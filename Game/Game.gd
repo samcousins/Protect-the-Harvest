@@ -1,16 +1,19 @@
 extends Node3D
 
-var num_objectives := 0
+signal player_exited
+signal game_over(score)
 
 @onready var game_over_ui = $GameOver
 @onready var score_text = $GameOver/VBoxContainer/Score
 
 var is_game_over := false
-signal player_exited
-signal game_over(score)
+
+var num_objectives := 0
 
 var score := 0.0
+
 var play_music = true
+
 
 func _ready():
 	$EnvironmentParent/Player.player_died.connect(_on_player_died)

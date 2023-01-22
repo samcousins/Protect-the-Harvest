@@ -1,12 +1,13 @@
 extends PathFollow3D
 
-var to_spawn : PackedScene
-
 @onready var timer = $SpawnTimer
+
+var to_spawn : PackedScene
 
 var game
 
 var timer_min := 2.0
+
 var timer_max := 5.0
 
 var reverse_dir := false

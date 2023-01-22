@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-var hp := 1
-
-var current_target
-
 @onready var agent : NavigationAgent3D = $NavigationAgent3D
+@onready var anim_player = $AnimationPlayer
+@onready var audio = $Audio
+@onready var attacking_sound = preload("res://Enemies/Badger/attack.wav")
+@onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
 
 var speed := 100
 
@@ -12,20 +12,22 @@ var gravity = -60
 
 var can_attack := true
 
-@onready var anim_player = $AnimationPlayer
+var hp := 1
 
-@onready var audio = $Audio
-@onready var attacking_sound = preload("res://Enemies/Badger/attack.wav")
-@onready var walking_sound = preload("res://Enemies/Badger/grunting.wav")
+var current_target
 
 var death_sound_sc = preload("res://Enemies/DeathSound.tscn")
+
 var blood_sc = preload("res://Enemies/Blood.tscn")
+
 var badger_death = preload("res://Enemies/Badger/badgerDeath.wav")
 
 var speed_power_up_sc = preload("res://PowerUps/SpeedUpPowerup/SpeedUpPowerUp.tscn")
+
 var speed_power_up_chance := 0.1
 
 var shells_power_up_sc = preload("res://PowerUps/ShellsPowerUp/ShellsPowerUp.tscn")
+
 var shell_power_up_chance := 0.2
 
 
