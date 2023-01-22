@@ -1,0 +1,22 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cdbjipv0rcqh1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2bjyr"]
+sky_top_color = Color(0.568627, 0.388235, 0.447059, 1)
+sky_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_rnovr"]
+sky_material = SubResource("ProceduralSkyMaterial_2bjyr")
+
+[resource]
+sky = SubResource("Sky_rnovr")
+ambient_light_source = 3
+ambient_light_color = Color(0.87451, 0.376471, 0.482353, 1)
+fog_enabled = true
+fog_density = 0.0269
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1969
+volumetric_fog_emission = Color(0.764706, 0.603922, 0.619608, 1)
+volumetric_fog_gi_inject = 1.08
+volumetric_fog_length = 2.0
+volumetric_fog_ambient_inject = 0.68
+adjustment_brightness = 1.45

@@ -9,13 +9,14 @@ signal fps_toggled(state)
 @onready var controls = $Menu/Controls
 @onready var about = $Menu/About
 @onready var volume = $Menu/SettingsVBox/VolumeHBox/VolumeSlider
-
+@onready var black_screen = $Menu/BlackScreen
 
 func _ready():
 	main_menu.visible = true
 	settings.visible = false
 	controls.visible = false
 	about.visible = false
+	
 	$Menu/SettingsVBox/Fullscreen.button_pressed = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 	volume.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	
@@ -23,18 +24,8 @@ func _ready():
 
 
 func fade_up():
-	$Menu/BlackScreen.visible = true
-	$FadeUp.interpolate_property(
-		$Menu/BlackScreen,
-		"color:a",
-		$Menu/BlackScreen.color.a,
-		0, 
-		2.0,
-		Tween.TRANS_SINE,
-		Tween.EASE_IN_OUT,
-		0.0
-	)
-	$FadeUp.start()
+	#black_screen.visible = true
+	create_tween().tween_property(black_screen, "modulate.a", 0, 1.0)
 
 
 func _on_Start_pressed():
@@ -97,10 +88,10 @@ func _on_AboutBack_pressed():
 func _on_Unlock_FPS_toggled(button_pressed):
 	emit_signal("fps_toggled", button_pressed)
 	if button_pressed:
-		Engine.set_target_fps(1000)
+		Engine.max_fps = 100
 	else:
-		Engine.set_target_fps(40)
+		Engine.max_fps = 40
 
 
-func _on_VolumeSlider_drag_ended(value_changed):
+func _on_VolumeSlider_drag_ended(_value_changed):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume.value)

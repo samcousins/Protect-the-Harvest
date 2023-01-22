@@ -1,1 +1,10 @@
+res://App/App.tscn
+res://Environment/material_0.material
+res://App/App.gd
+res://MainMenu/MainMenu.tscn
+res://MainMenu/MainMenu.gd
+res://MainMenu/CameraPivot.gd
 res://Game/Game.tscn
+res://Theme/EnvironmentSettings.tres
+res://Player/Player.tscn
+res://Player/Player.gd

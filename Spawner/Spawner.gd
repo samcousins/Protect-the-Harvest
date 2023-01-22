@@ -15,19 +15,19 @@ var reverse_dir := false
 func _ready():
 	randomize()
 	timer.start()
-	offset += randf_range(0.0, 100.0)
+	progress += randf_range(0.0, 100.0)
 
 
 func _process(delta):
 	if reverse_dir:
-		offset -= delta * 10
+		progress -= delta * 10
 	else:
-		offset += delta * 10
+		progress += delta * 10
 
 
 func _on_SpawnTimer_timeout():
 	var spawn = to_spawn.instantiate()
-	spawn.position = global_translation
+	spawn.position = global_position
 	game.add_child(spawn)
 	
 	randomize()

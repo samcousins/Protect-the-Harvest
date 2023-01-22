@@ -24,13 +24,13 @@ func _ready():
 
 
 func _process(delta):
-	var target_pos = Vector3(target.global_translation.x, global_translation.y, target.global_translation.z)
+	var target_pos = Vector3(target.global_position.x, global_position.y, target.global_position.z)
 	
 	look_at(target_pos, Vector3.UP)
 	
-	if global_translation.distance_squared_to(target_pos) > 25:
-		var direction = global_translation.direction_to(target_pos)
-		global_translation += direction * speed * delta
+	if global_position.distance_squared_to(target_pos) > 25:
+		var direction = global_position.direction_to(target_pos)
+		global_position += direction * speed * delta
 	elif can_attack:
 		attack()
 
@@ -42,9 +42,9 @@ func attack():
 	
 	fb.transform = beak.global_transform
 	
-	var target_pos = target.global_translation
+	var target_pos = target.global_position
 
-	fb.direction = beak.global_translation.direction_to(target_pos)
+	fb.direction = beak.global_position.direction_to(target_pos)
 	
 	get_parent().add_child(fb)
 	

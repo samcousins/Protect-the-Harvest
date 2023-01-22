@@ -9,7 +9,7 @@ var exploded := false
 var explosion_sc = preload("res://Enemies/Crow/Fireball/FireballExplosion.tscn")
 
 func _process(delta):
-	global_translation += direction * speed * delta
+	global_position += direction * speed * delta
 
 
 func _on_Lifespan_timeout():
@@ -18,7 +18,7 @@ func _on_Lifespan_timeout():
 
 func spawn_explosion():
 	var explosion = explosion_sc.instantiate()
-	explosion.global_translation = global_translation
+	explosion.global_position = global_position
 	get_parent().add_child(explosion)
 
 

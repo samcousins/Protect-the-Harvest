@@ -13,6 +13,7 @@ var unlock_fps := false
 
 
 func _ready():
+	get_tree().paused = false
 	_load_game()
 	add_main_menu()
 
@@ -58,7 +59,7 @@ func add_game():
 	
 	game = game_sc.instantiate()
 	
-	game.play_music = play_music
+	#game.play_music = play_music
 	
 	game.connect("player_exited",Callable(self,"_on_player_exited"))
 	game.connect("game_over",Callable(self,"_on_game_over"))
@@ -97,31 +98,18 @@ func _save_game():
 		"Music" : play_music,
 		"Fullscreen" : ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 	}
-	var save_game = File.new()
-	save_game.open("user://savegame.save", File.WRITE)
-	save_game.store_line(JSON.new().stringify(save_dict))
-	save_game.close()
+	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
+	var json_string = JSON.stringify(save_dict)
+	file.store_line(json_string)
 
 
 func _load_game():
-	var save_game = File.new()
-	if not save_game.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists("user://save_game.dat"):
 		return
+		
+	var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
 	
-	save_game.open("user://savegame.save", File.READ)
-	var test_json_conv = JSON.new()
-	test_json_conv.parse(save_game.get_line())
-	var app_data = test_json_conv.get_data()
-	if app_data:
-		if app_data.has("Highscore"):
-			print("Data has highscore")
-			highscore = app_data["Highscore"]
-		if app_data.has("FPS"):
-			print("Data has unlock FPS")
-			unlock_fps = app_data["FPS"]
-		if app_data.has("Music"):
-			print("Data has music")
-			play_music = app_data["Music"]
-		if app_data.has("Fullscreen"):
-			print("Data has fullscreen")
-			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (app_data["Fullscreen"]) else Window.MODE_WINDOWED
+	var content = file.get_as_text()
+	
+	print("You need to implement loading of the data")
+	print(content)

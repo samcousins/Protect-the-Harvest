@@ -24,7 +24,7 @@ func die():
 	emit_signal("obj_destroyed")
 	
 	var dest = destruction_sound.instantiate()
-	dest.global_translation = global_translation
+	dest.global_position = global_position
 	owner.add_child(dest)
 	
 	queue_free()

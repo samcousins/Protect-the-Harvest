@@ -10,8 +10,6 @@ var speed := 100
 
 var gravity = -60
 
-var velocity := Vector3()
-
 var can_attack := true
 
 @onready var anim_player = $AnimationPlayer
@@ -31,7 +29,6 @@ var shells_power_up_sc = preload("res://PowerUps/ShellsPowerUp/ShellsPowerUp.tsc
 var shell_power_up_chance := 0.2
 
 
-
 func _ready():
 	randomize()
 	find_new_target()
@@ -49,7 +46,7 @@ func _physics_process(delta):
 		find_new_target()
 		return
 	
-	look_at(Vector3(current_target.global_translation.x, global_translation.y, current_target.global_translation.z), Vector3.UP)
+	look_at(Vector3(current_target.global_position.x, global_position.y, current_target.global_position.z), Vector3.UP)
 	
 	if agent.distance_to_target() < agent.target_desired_distance:
 		if anim_player.current_animation != "Attacking":
@@ -67,13 +64,13 @@ func _physics_process(delta):
 	
 	var dest = agent.get_next_location()
 	
-	velocity = global_translation.direction_to(dest)
+	velocity = global_position.direction_to(dest)
 	
 	velocity.y += gravity * delta
 	
 	set_velocity(velocity * speed * delta)
 	move_and_slide()
-	velocity = velocity
+	#velocity = velocity
 
 
 func die():
@@ -128,16 +125,16 @@ func find_new_target():
 	current_target = null
 	var targets := get_tree().get_nodes_in_group("objectives")
 	
-	if targets.size() == 0 or not targets:
+	if targets.is_empty():
 		return
 	
 	var distance := INF
 	
 	for target in targets:
-		var new_dist = global_translation.distance_squared_to(target.global_translation)
+		var new_dist = global_position.distance_squared_to(target.global_position)
 		if new_dist < distance:
 			distance = new_dist
 			current_target = target
 	
 	if current_target:
-		agent.set_target_location(current_target.global_translation)
+		agent.set_target_location(current_target.global_position)
