@@ -20,3 +20,5 @@ res://PowerUps/PowerUp.gd
 res://Spawner/Spawner.gd
 res://Game/SpawnPath.gd
 res://App/App.gd
+res://Weapons/Bullet/Bullet.tscn
+res://Player/Pixellate.gdshader
