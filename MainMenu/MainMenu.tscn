@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Environment/material_0.material" type="Material" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objectives/Hay/GreenBar.png" type="Texture" id=7]
 [ext_resource path="res://Objectives/Hay/Healthbar.gd" type="Script" id=8]
 [ext_resource path="res://Objectives/Hay/HealthbarTex.gd" type="Script" id=9]
+[ext_resource path="res://Theme/Vollkorn-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="NavigationMesh" id=86]
 vertices = PoolVector3Array( -11.5, 0.5, -2.75, -5.25, 0.5, -2.75, -5, 0.5, -3.5, -5, 0.5, -3.5, -3, 0.5, -4, -3, 0.5, -11.5, -11.5, 0.5, -11.5, -11.5, 0.5, -2.75, -1.5, 0.5, -2.25, 1, 0.5, -2.25, 1, 0.5, -2.75, -1.75, 0.5, -3.5, -3, 0.5, -4, -1.75, 0.5, -3.5, 1, 0.5, -2.75, 3, 0.5, -4.25, 3, 0.5, -11.5, -3, 0.5, -11.5, 3, 0.5, -11.5, 3, 0.5, -4.25, 3.5, 0.5, -4.25, 3.5, 0.5, -4.25, 4.75, 0.5, -2.75, 11.5, 0.5, -2.75, 11.5, 0.5, -11.5, 3, 0.5, -11.5, -4, 1.5, -2.75, -4, 1.5, -2.25, -2.75, 1.5, -2.5, -2.75, 1.5, -3, 2.25, 1.5, -2.25, 2.75, 1.5, -2, 3.25, 1.5, -2.5, 3, 1.5, -3, -2.25, 0.5, 1, -2.75, 0.5, -1.25, -4.5, 0.5, -1, -3.25, 0.5, 2.5, -11.5, 0.5, 4.25, -2.75, 0.5, 4, -3.25, 0.5, 3.75, -3.25, 0.5, 3.75, -3.25, 0.5, 2.5, -4.5, 0.5, -1, -5.25, 0.5, -2.75, -11.5, 0.5, -2.75, -11.5, 0.5, 4.25, 3.25, 0.5, -0.75, 2.75, 0.5, -0.75, 2.75, 0.5, 2.75, 4.5, 0.5, 3.5, 3.25, 0.5, -0.75, 4.5, 0.5, 3.5, 5, 0.5, 4.5, 11.5, 0.5, 4.5, 11.5, 0.5, -2.75, 4.75, 0.5, -2.75, -1.75, 0.5, -1.5, -2.75, 0.5, -1.25, -2.25, 0.5, 1, -1, 0.5, 1, 1.25, 0.5, 5, -0.75, 0.5, 4.25, -2, 0.5, 4.5, -2, 0.5, 11.5, 3.75, 0.5, 11.5, 3.75, 0.5, 6.25, 1, 0.5, -2.25, -1.5, 0.5, -2.25, -1.75, 0.5, -1.5, -1, 0.5, 1, 0, 0.5, 1.75, 2, 0.5, -0.75, 2.75, 0.5, 2.75, 2.75, 0.5, -0.75, 2, 0.5, -0.75, 0, 0.5, 1.75, 1.75, 0.5, 3.25, -0.75, 0.5, 4.25, 1.25, 0.5, 5, 1.75, 0.5, 3.25, 0, 0.5, 1.75, -2, 0.5, 11.5, -2, 0.5, 4.5, -2.75, 0.5, 4, -11.5, 0.5, 4.25, -11.5, 0.5, 11.5, 4.75, 0.5, 5.5, 3.75, 0.5, 6.25, 3.75, 0.5, 11.5, 11.5, 0.5, 4.5, 5, 0.5, 4.5, 4.75, 0.5, 5.5, 3.75, 0.5, 11.5, 11.5, 0.5, 11.5 )
@@ -1315,6 +1316,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.25 ), Vector3( 0, 0, -0.25 ), Vector3( 0, 0, 0.2 ), Vector3( 0, 0, -0.2 ), Vector3( 0, 0, 0.1 ), Vector3( 0, 0, -0.1 ), Vector3( 0, 0, 0.05 ), Vector3( 0, 0, -0.05 ) ]
 }
 
+[sub_resource type="DynamicFont" id=95]
+font_data = ExtResource( 10 )
+
 [sub_resource type="ProceduralSky" id=93]
 sky_top_color = Color( 0.996078, 0.788235, 0.788235, 1 )
 sky_horizon_color = Color( 0.396078, 0.392157, 0.392157, 1 )
@@ -2041,6 +2045,7 @@ valign = 1
 margin_top = 33.0
 margin_right = 204.0
 margin_bottom = 73.0
+custom_fonts/font = SubResource( 95 )
 pressed = true
 text = "FULLSCREEN"
 align = 1
@@ -2049,6 +2054,7 @@ align = 1
 margin_top = 77.0
 margin_right = 204.0
 margin_bottom = 117.0
+custom_fonts/font = SubResource( 95 )
 pressed = true
 text = "MUSIC"
 align = 1
@@ -2058,22 +2064,45 @@ icon_align = 1
 margin_top = 121.0
 margin_right = 204.0
 margin_bottom = 161.0
+custom_fonts/font = SubResource( 95 )
 text = "UNLOCK FPS"
+
+[node name="VolumeHBox" type="HBoxContainer" parent="Menu/SettingsVBox"]
+margin_top = 165.0
+margin_right = 204.0
+margin_bottom = 189.0
+alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="Menu/SettingsVBox/VolumeHBox"]
+margin_right = 68.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 95 )
+text = "VOLUME"
+
+[node name="VolumeSlider" type="HSlider" parent="Menu/SettingsVBox/VolumeHBox"]
+margin_left = 72.0
+margin_right = 204.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+min_value = -30.0
+max_value = 20.0
+value = 1.0
 
 [node name="Controls" type="Button" parent="Menu/SettingsVBox"]
 margin_left = 10.0
-margin_top = 165.0
+margin_top = 193.0
 margin_right = 193.0
-margin_bottom = 200.0
+margin_bottom = 228.0
 size_flags_horizontal = 4
 text = "SHOW CONTROLS"
 icon_align = 1
 
 [node name="Back" type="Button" parent="Menu/SettingsVBox"]
 margin_left = 69.0
-margin_top = 204.0
+margin_top = 232.0
 margin_right = 134.0
-margin_bottom = 239.0
+margin_bottom = 267.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "BACK"
@@ -2188,6 +2217,7 @@ autoplay = true
 [connection signal="toggled" from="Menu/SettingsVBox/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="toggled" from="Menu/SettingsVBox/Music" to="." method="_on_Music_toggled"]
 [connection signal="toggled" from="Menu/SettingsVBox/Unlock FPS" to="." method="_on_Unlock_FPS_toggled"]
+[connection signal="drag_ended" from="Menu/SettingsVBox/VolumeHBox/VolumeSlider" to="." method="_on_VolumeSlider_drag_ended"]
 [connection signal="pressed" from="Menu/SettingsVBox/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="Menu/SettingsVBox/Back" to="." method="_on_SettingsBack_pressed"]
 [connection signal="pressed" from="Menu/Controls/ControlsBack" to="." method="_on_ControlsBack_pressed"]

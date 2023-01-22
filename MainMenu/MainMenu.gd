@@ -8,6 +8,7 @@ onready var main_menu = $Menu/MenuVBox
 onready var settings = $Menu/SettingsVBox
 onready var controls = $Menu/Controls
 onready var about = $Menu/About
+onready var volume = $Menu/SettingsVBox/VolumeHBox/VolumeSlider
 
 
 func _ready():
@@ -16,6 +17,7 @@ func _ready():
 	controls.visible = false
 	about.visible = false
 	$Menu/SettingsVBox/Fullscreen.pressed = OS.window_fullscreen
+	volume.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	
 	fade_up()
 
@@ -98,3 +100,7 @@ func _on_Unlock_FPS_toggled(button_pressed):
 		Engine.set_target_fps(1000)
 	else:
 		Engine.set_target_fps(40)
+
+
+func _on_VolumeSlider_drag_ended(value_changed):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume.value)

@@ -17,9 +17,22 @@ var hp := 3
 
 onready var equipped_weapon = $Pivot/Gun
 
+onready var tween := $HUD/FadeIn/Tween
+onready var fade_in_screen := $HUD/FadeIn
 
 func _ready():
+	tween.interpolate_property(
+		fade_in_screen,
+		"modulate",
+		Color(1, 1, 1, 1), Color(1, 1, 1, 0), 
+		1.0, 
+		Tween.TRANS_LINEAR, 
+		Tween.EASE_IN
+	)
+	tween.start()
+	
 	$Start.play()
+	
 	hp_ui.text = str(hp)
 
 
