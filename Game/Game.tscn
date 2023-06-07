@@ -86,3 +86,4 @@ spawn_time_max = 20.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_304rk")
+volume_db = 10.314
