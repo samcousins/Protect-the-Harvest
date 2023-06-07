@@ -61,7 +61,7 @@ func speed_up(power_time):
 	speed_up_anim.visible = true
 	
 	if not sped_up:
-		anim.playback_speed = 2
+		anim.speed_scale = 2
 		speed_up_timer.wait_time = power_time
 		speed_up_timer.start()
 	
@@ -91,7 +91,7 @@ func use_shell():
 
 func speed_power_down():
 	speed_up_anim.visible = false
-	anim.playback_speed = 1
+	anim.speed_scale = 1
 	sped_up = false
 
 

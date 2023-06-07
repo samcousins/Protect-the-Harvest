@@ -21,8 +21,8 @@ func _on_Lifespan_timeout():
 
 func spawn_explosion():
 	var explosion = explosion_sc.instantiate()
-	explosion.global_position = global_position
 	get_parent().add_child(explosion)
+	explosion.global_position = global_position
 
 
 func _on_Fireball_body_shape_entered(_rid, body, _bsi, _lsi):

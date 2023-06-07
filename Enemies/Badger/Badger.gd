@@ -65,7 +65,7 @@ func _physics_process(delta):
 			audio.stream = walking_sound
 			audio.play()
 	
-	var dest = agent.get_next_location()
+	var dest = agent.get_next_path_position()
 	
 	velocity = global_position.direction_to(dest)
 	
@@ -135,9 +135,10 @@ func find_new_target():
 	
 	for target in targets:
 		var new_dist = global_position.distance_squared_to(target.global_position)
+		
 		if new_dist < distance:
 			distance = new_dist
 			current_target = target
 	
 	if current_target:
-		agent.set_target_location(current_target.global_position)
+		agent.set_target_position(current_target.global_position)
